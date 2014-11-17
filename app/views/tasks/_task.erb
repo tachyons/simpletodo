@@ -1,0 +1,15 @@
+<div class="task" id ="task<%= task.id %>">
+	<span class="task-name"><%= task.name %></span>
+	<br/>
+	<div class="pull-right hidden-phone">
+		<button class="up_button" onclick="move_up(<%= task.id %>)"></button>
+		<button class="down_button" onclick="move_down(<%= task.id %>)"></button>
+		<button class="delete_button" onclick="delete_task(<%= task.id %>)"></button>
+		<% if task.status==true %>
+			<button class="uncheck_button" onclick="change_status(<%= task.id %>)"></button>
+		<% else %>
+			<button class="check_button" onclick="change_status(<%= task.id %>)"></button>
+		<% end %>
+	</div>
+	<span class="time"><%= task.created_at %></span>
+</div>

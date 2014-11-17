@@ -1,0 +1,33 @@
+<div>
+	<div id="wrapper" style="width:100%; text-align:center">
+		<div id="top_nav" class="row">
+			<a href="/tasks">
+				<%= image_tag 'Logo.png',:id => "logo_image" ,:class=>"pull-left" %>
+			</a>
+		  	<nav class="pull-right">
+				<div role="presentation" class="dropdown">
+				    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+				      <%= @user.name %> 
+				    </a>
+				    <ul class="dropdown-menu" role="menu">
+				      <li><%= @user.email %></li>
+				      <li><a href="/users/change_password">Change password</a></li>
+				    </ul>
+				 </div>
+				<a href="/users/logout">logout</a>
+			</nav>
+		</div>
+	  	<div id="input">
+			<input type="text" name="" id="input_task" class="form-control_back" value="" required="required" pattern="" title="" placeholder="Add your todo Entry hit 'Enter' to post">
+			<span id="input_img"></span>
+		</div>
+	</div>
+	<div id="task_list">
+		<%= render :partial => @tasks %>
+		<% if @tasks.next_page %>
+		<a href="/tasks/task_list?page=2" class="load-more-posts" remote="true">Load More Posts</a>
+		<% end %>
+		<!-- < %= link_to 'Load More Posts', tasks_path(:page => @tasks.next_page), :class => 'load-more-posts', :remote => true if @tasks.next_page %> -->
+	</div>
+	</div>
+<div id="status"></div>

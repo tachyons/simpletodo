@@ -1,0 +1,25 @@
+<div id="wrapper" style="width:100%; text-align:center">
+  <%= image_tag 'Logo.png',:id => "logo_image"  %>
+</div>
+<div id="login_block">
+<div id="login_top">
+	<span class="pull-left active"><a href="/users/login">Login</a></span>
+	<span class="pull-right inactive"><a href="/users/new">Sign up</a></span>
+</div>
+<hr/>
+<div id="login">
+	<% form_for :user,:controller=>"users",:action=>"login",:html=>{:class=>"form-signin_backup"} do |user_form| %>
+    	<p class="form_entry">
+	    	<%= user_form.label :email %>
+	        <%= user_form.text_field :email, :placeholder=>"example@gmail.com",:type=>"text",:id=>"inputemail",:class=>"input-control pull-right" %>
+        </p>
+        <p class="form_entry">
+        	<%= user_form.label :password %>
+        	<%= user_form.text_field :password, :placeholder=>"Password",:type=>"password",:id=>"inputfpassword",:class=>"input-control pull-right",:required=>"true" %>
+        </p>
+        <div id="login-bottom">
+        	<button class="" type="submit" id="login_button">Sign in</button> <span ><a href="/users/forgot_password" id="forgot_password">Forgot password</a></span>
+        </div>
+    <% end %>
+</div>
+</div>

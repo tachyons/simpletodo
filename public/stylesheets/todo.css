@@ -1,0 +1,262 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  /*width:1366px ;
+  height:768px ;
+*/  margin-bottom: 60px;
+  background-color: #e8e8e8;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.form-control { margin-bottom: 10px; }
+#signup_container {
+  margin:0 auto;
+  width:1000px;
+}
+.task {
+position: relative;
+padding: 20px 20px;
+border-bottom: 1px dashed #eaeaea;
+min-height: 80px;
+width: 600px;
+background-color: white;
+margin-bottom: 20px;
+font-family: "Open Sans";
+font-size: 16px;
+color:#34495e;
+margin:20px auto;
+}
+.task-checkbox {
+float: left;
+width: 30px;
+}
+#logo_image {
+    text-align: center;
+    vertical-align: middle;
+}
+#login_block {
+    width: 600px;
+    height: 350px;
+    background-color: #ffffff;
+    margin: 0 auto;
+}
+#signup_block {
+    width: 600px;
+    height: 523px;
+    background-color: #ffffff;
+    margin: 0 auto;
+}
+#login_top {
+  padding-top: 37px;
+  padding-left: 30px;
+  padding-right:30px;
+  padding-bottom: 32px;
+  font-family: "Open Sans";
+  /*font-weight: 300; */
+  font-size: 25px;
+}
+
+span.active {
+  color:#34495e;
+}
+span.inactive {
+  color:#cccccc;
+}
+span.inactive:hover {
+  color:#34495e;
+}
+#login {
+  padding: 30px;
+}
+#signup {
+  padding: 30px;
+}
+.input-control {
+  height: 50px;
+  width:370px;
+  border-color: #CBCBCB;
+  border-width: 1px;
+  padding-left: 20px;
+  background-color: #F1F1F1;
+  border-style: ridge;
+}
+.input-control:focus {
+  background-color: white;
+}
+label {
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-size: 18px;
+  margin-top: 13px;
+}
+#login_button {
+  width:174px;
+  height: 50px;
+  background-color: #00BB9B;
+  border-radius: 2px;
+  margin-left: 170px;
+  color: white;
+  font-size:20px;
+  font-weight: bold;
+  border-width: 0px;
+}
+p.form_entry {
+  overflow: hidden;
+}
+a#forgot_password {
+  color:#34495e;
+  margin-left: 30px;
+  text-decoration: underline;
+}
+#login-bottom {
+  margin-top: 20px;
+}
+#input_task {
+  width: 600px;
+  height:50px;
+  /*height:20px;*/
+
+  margin:0;
+  padding-left: 50px;
+}
+button {
+  border-style: none;
+  margin-left: 20px;
+}
+/* Sprite Section */
+.delete_button { 
+  background: url('/images/iconsprite.png') no-repeat -83px -11px; 
+  width: 14px; 
+  height: 14px;
+}
+.delete_button:hover {
+  background: url('/images/iconsprite.png') no-repeat -83px -47px;
+}
+.up_button {
+  background: url('/images/iconsprite.png') no-repeat -48px -14px; 
+  width: 12px; 
+  height: 9px;
+}
+.down_button {
+  background: url('/images/iconsprite.png') no-repeat -12px -13px; 
+  width: 12px; 
+  height: 9px;
+}
+.up_button:hover {
+  background: url('/images/iconsprite.png') no-repeat -48px -50px; 
+}
+.down_button:hover {
+  background: url('/images/iconsprite.png') no-repeat -12px -49px;
+}
+.check_button {
+  background: url('/images/iconsprite.png') no-repeat -145px -1px; 
+  width: 34px; 
+  height: 34px;
+}
+.uncheck_button {
+  background: url('/images/iconsprite.png') no-repeat -145px -73px; 
+  width: 34px; 
+  height: 34px;
+}
+.check_button:hover {
+  background: url('/images/iconsprite.png') no-repeat -145px -37px;
+}
+.uncheck_button:hover {
+  background: url('/images/iconsprite.png') no-repeat -145px -109px;
+}
+#input_img {
+  background: url('/images/iconsprite.png') no-repeat -116px -8px; 
+  width: 20px; 
+  height: 20px;
+ position:absolute;
+  bottom:15px;
+  left:10px;
+  /*width:10px;
+  height:10px;*/
+}
+#input {
+  width: 600px;
+  height:50px;
+  position:relative;
+  padding:0;
+  background:#ddd;
+  margin: 0 auto;
+  margin-bottom: 50px;
+
+}
+.time {
+  font-family: "Open Sans";
+  font-size: 12px;
+  color:#999999;
+}
+#top_nav {
+  width: 500px;
+  margin: 0px auto;
+  margin-bottom: 50px;
+}

@@ -1,0 +1,5 @@
+$('#task_list').append('#{escape_javascript(render partial: "tasks", :locals => { :tasks => @tasks })}');
+$('a.load-more-posts').attr('href', '#{posts_path page: @posts.next_page}');
+ 
+- unless @posts.next_page
+  $('a.load-more-posts').remove();

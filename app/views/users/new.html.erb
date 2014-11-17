@@ -1,0 +1,34 @@
+<div id="wrapper" style="width:100%; text-align:center">
+  <%= image_tag 'Logo.png',:id => "logo_image"  %>
+</div>
+<div id="signup_block">
+  <div id="login_top">
+    <span class="pull-left inactive"><a href="/users/login">Login</a></span>
+    <span class="pull-right active"><a href="/users/new">Sign up</a></span>
+  </div>
+  <hr/>
+  <div id="signup">
+    <% form_for @user , :as => :user do |user_form| %>
+          <%= user_form.error_messages %>
+        <p class="form_entry">
+          <%= user_form.label :name %>
+          <%= user_form.text_field :name, :placeholder=>"",:type=>"text",:id=>"inputname",:class=>"input-control pull-right" %>
+        </p>
+        <p class="form_entry">
+          <%= user_form.label :email %>
+          <%= user_form.text_field :email, :placeholder=>"example@gmail.com",:type=>"text",:id=>"inputemail",:class=>"input-control pull-right" %>
+        </p>
+        <p class="form_entry">
+          <%= user_form.label :password %>
+          <%= user_form.text_field :password, :placeholder=>"Password",:type=>"password",:id=>"inputfpassword",:class=>"input-control pull-right",:required=>"true" ,:value=>""%>
+        </p>
+        <p class="form_entry">
+          <%= user_form.label :Confirm%>
+          <%= user_form.text_field :password, :placeholder=>"",:type=>"password",:id=>"confirmpassword",:class=>"input-control pull-right",:required=>"true" ,:value=>""%>
+        </p>
+          <div id="login-bottom">
+            <button class="" type="submit" id="login_button">Sign Up</button> 
+          </div>
+      <% end %>
+  </div>
+</div>
