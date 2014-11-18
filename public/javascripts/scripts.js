@@ -1,8 +1,4 @@
 $(document).ready(function(){
-	$('#task_list').jscroll({
-    // autoTrigger: false
-    loadingHtml: '<img src="/ajax-loader.gif" alt="Loading" /> Loading...'
-});
   $('#input_task').keypress(function (e) {
     var key = e.which;
     if(key == 13) {
@@ -11,7 +7,7 @@ $(document).ready(function(){
       		alert("Nothing to do ?? , Why you here ?? ;-)")
       	} else {
       		$.post( "tasks/create", {user:{ name: task, user_id: user_id,status:0 }} ).done(function( data ) {
-	   		$('#task_list').append(data);
+	   		$('#task_list').prepend(data);
 	  	});
       	$('#input_task').val('');
      }

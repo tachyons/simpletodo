@@ -3,7 +3,7 @@
 </div>
 <div id="signup_block">
   <div id="login_top">
-    <span class="pull-left inactive"><a href="/users/login">Login</a></span>
+    <span class="pull-left inactive"><a href="<%= login_path %>">Login</a></span>
     <span class="pull-right active"><a href="/users/new">Sign up</a></span>
   </div>
   <hr/>
@@ -20,11 +20,11 @@
         </p>
         <p class="form_entry">
           <%= user_form.label :password %>
-          <%= user_form.text_field :password, :placeholder=>"Password",:type=>"password",:id=>"inputfpassword",:class=>"input-control pull-right",:required=>"true" ,:value=>""%>
+          <%= user_form.password_field :password_confirmation, :placeholder=>" Confirm Password",:type=>"password",:id=>"inputpassword",:class=>"input-control pull-right",:required=>"true" ,:value=>""%>
         </p>
         <p class="form_entry">
           <%= user_form.label :Confirm%>
-          <%= user_form.text_field :password, :placeholder=>"",:type=>"password",:id=>"confirmpassword",:class=>"input-control pull-right",:required=>"true" ,:value=>""%>
+          <%= user_form.password_field :password, :placeholder=>"",:type=>"password",:id=>"confirmpassword",:class=>"input-control pull-right",:required=>"true" ,:value=>""%>
         </p>
           <div id="login-bottom">
             <button class="" type="submit" id="login_button">Sign Up</button> 

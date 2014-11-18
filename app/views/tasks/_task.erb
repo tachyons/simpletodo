@@ -2,8 +2,12 @@
 	<span class="task-name"><%= task.name %></span>
 	<br/>
 	<div class="pull-right hidden-phone">
-		<button class="up_button" onclick="move_up(<%= task.id %>)"></button>
-		<button class="down_button" onclick="move_down(<%= task.id %>)"></button>
+		<% unless task.next.nil? %>
+			<button class="up_button" onclick="move_up(<%= task.id %>)"></button>
+		<% end %>
+		<% unless task.previous.nil? %>
+			<button class="down_button" onclick="move_down(<%= task.id %>)"></button>
+		<% end%>
 		<button class="delete_button" onclick="delete_task(<%= task.id %>)"></button>
 		<% if task.status==true %>
 			<button class="uncheck_button" onclick="change_status(<%= task.id %>)"></button>

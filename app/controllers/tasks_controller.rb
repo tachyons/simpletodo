@@ -4,16 +4,17 @@ class TasksController < ApplicationController
   end
   def create
   	@task=Task.new(params[:user])
+    @task.user_id=@user.id;
     if @task.save
-      @task.order=@task.id;
       render :partial => 'task'
     else
-
     end
   end
   def index
   	#@tasks=@user.tasks
-    @tasks=@user.tasks.paginate(:page => params[:page], :per_page => 8)
+    if @user
+      @tasks=@user.tasks.reverse.paginate(:page => params[:page], :per_page => 8)
+    end
   end
 
   def destroy
@@ -39,10 +40,10 @@ class TasksController < ApplicationController
       #format.html { render action: "new" }
     end
   end
-  def move_up
+  def move_down
     @id=params[:task][:id]
     @task = @user.tasks.find(@id)
-    @up_task=@user.tasks.find(:last,:conditions =>"id < #{@id}")
+    @up_task=@task.previous
     p "Current task #{@task.id}, uptask: #{@up_task.id}"
     if @task && @up_task
       @task_id=@task.id;
@@ -55,17 +56,17 @@ class TasksController < ApplicationController
 
       # p @task
       if @task.save! && @up_task.save!
-        @tasks=@user.tasks
+        @tasks=@user.tasks.reverse
         render :partial => @tasks
       else
         render :text => @task.errors
       end
     end
   end
-  def move_down
+  def move_up
     @id=params[:task][:id]
     @task = @user.tasks.find(@id)
-    @next_task=@user.tasks.find(:first,:conditions =>"id > #{@id}")
+    @next_task=@task.next
     #p "Current task #{@task.id}, uptask: #{@up_task.id}"
     if @task && @next_task
       @task_id=@task.id;
@@ -78,7 +79,7 @@ class TasksController < ApplicationController
 
       # p @task
       if @task.save! && @next_task.save!
-        @tasks=@user.tasks
+        @tasks=@user.tasks.reverse
         render :partial => @tasks
       else
         render :text => @task.errors
@@ -90,15 +91,13 @@ class TasksController < ApplicationController
   end
   def task_list
     render :layout => false
-    @tasks=@user.tasks.paginate(:page => params[:page], :per_page => 8)
+    @tasks=@user.tasks.reverse.paginate(:page => params[:page], :per_page => 8)
   end
   private
     def check_loggedin
-      if session[:user_id].nil?
-        redirect_to users_path
-      else
-        @user_id=session[:user_id];
-        @user=User.find(@user_id)
+      @user=current_user
+      if @user.nil?
+        redirect_to login_path
       end
     end
 end

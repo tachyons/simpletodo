@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141112101550) do
+ActiveRecord::Schema.define(:version => 20141117124017) do
 
   create_table "tasks", :force => true do |t|
     t.string   "name"
@@ -23,11 +23,20 @@ ActiveRecord::Schema.define(:version => 20141112101550) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password_hash"
-    t.string   "confirmation_code"
-    t.boolean  "confirmed"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.string   "perishable_token"
+    t.integer  "login_count",        :default => 0,     :null => false
+    t.integer  "failed_login_count", :default => 0,     :null => false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "verified",           :default => false
   end
 
 end

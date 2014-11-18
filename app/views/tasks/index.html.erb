@@ -5,16 +5,17 @@
 				<%= image_tag 'Logo.png',:id => "logo_image" ,:class=>"pull-left" %>
 			</a>
 		  	<nav class="pull-right">
-				<div role="presentation" class="dropdown">
-				    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-				      <%= @user.name %> 
-				    </a>
-				    <ul class="dropdown-menu" role="menu">
-				      <li><%= @user.email %></li>
-				      <li><a href="/users/change_password">Change password</a></li>
-				    </ul>
-				 </div>
-				<a href="/users/logout">logout</a>
+			  	<div class="dropdown" id="profile_menu">
+					<a class="" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+						<%= @user.name %>
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="active"><%= @user.email %></a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="/users/change_password" class="active">Change Password</a></li>
+					</ul>
+				</div>
+				<a href="/logout" id="logout">Logout</a>
 			</nav>
 		</div>
 	  	<div id="input">

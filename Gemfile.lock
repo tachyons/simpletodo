@@ -15,6 +15,7 @@ GEM
       activesupport
     bcrypt-ruby (3.0.1)
     mysql (2.9.1)
+    nifty-generators (0.4.6)
     rack (1.1.6)
     rails (2.3.8)
       actionmailer (= 2.3.8)
@@ -23,7 +24,7 @@ GEM
       activeresource (= 2.3.8)
       activesupport (= 2.3.8)
       rake (>= 0.8.3)
-    rake (10.3.2)
+    rake (0.8.7)
     will_paginate (2.3.16)
 
 PLATFORMS
@@ -33,5 +34,6 @@ DEPENDENCIES
   authlogic (= 2.1.6)
   bcrypt-ruby (~> 3.0.0)
   mysql
+  nifty-generators
   rails (= 2.3.8)
   will_paginate (~> 2.3.16)

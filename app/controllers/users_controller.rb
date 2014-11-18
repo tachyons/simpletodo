@@ -2,51 +2,42 @@ class UsersController < ApplicationController
   def new
     @user=User.new(:password=>nil)
   end
-  def logout
-    if !session[:user_id].nil?
-      session.delete('user_id')
-      session[:user_id]=nil
-      flash[:notice] = "You have been signed out."
-    end
-    redirect_to :action => "login"
-  end
   def create
     @user = User.new(params[:user])
-    @user.password = params[:user][:password]
-    if @user.save!
-        redirect_to root_url, :notice => "Signed up!"
+    if @user.save
+      flash[:notice] = "Thanks for signing up, we've delivered an email to you with instructions on how to complete your registration!"
+      @user.deliver_verification_instructions!
+      redirect_to root_url
     else
-      render :action => "sign_in"
+      render :action => 'new'
     end
   end
-  def login
-    if request.post? and params[:user]
-      @user = User.find_by_email(params[:user][:email])
-      if @user && @user.password == params[:user][:password]
-        session[:user_id]=@user.id
-        redirect_to :root
+  def show
+    @user=User.find(params[:id])
+  end
+
+  def edit
+    @user = current_user
+  end
+  def change_password
+    @user = current_user
+    if request.post?
+      @user.password = params[:user][:password]
+      @user.password_confirmation = params[:user][:password_confirmation]
+      if @user.changed? && @user.save
+        redirect_to user_path(current_user)
       else
-        render :action => "login"
+        render :action => "change_password"
       end
     end
   end
-  def forgot_password
-    if request.post?
-      @user = User.find_by_email(params[:email])
-      random_password = Array.new(10).map { (65 + rand(58)).chr }.join
-      @user.password = random_password
-      @user.save!
-      Mailer.create_and_deliver_password_change(@user, random_password)
-    end
-  end
-  def change_password
-  end
-  def show
-    @user=User.find_by_id(params[:id]);
-  end
-  def index
-    if session[:user_id].nil?
-      redirect_to :action=> "login"
+  def update
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "Successfully updated profile."
+      redirect_to root_url
+    else
+      render :action => 'edit'
     end
   end
 end

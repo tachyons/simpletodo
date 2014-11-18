@@ -5,7 +5,6 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :order
       t.boolean :status
       t.references :user
-
       t.timestamps
     end
   end

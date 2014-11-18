@@ -99,16 +99,17 @@ width: 30px;
 #logo_image {
     text-align: center;
     vertical-align: middle;
+    margin-bottom: 41px;
 }
 #login_block {
     width: 600px;
-    height: 350px;
+    min-height: 350px;
     background-color: #ffffff;
     margin: 0 auto;
 }
 #signup_block {
     width: 600px;
-    height: 523px;
+    min-height: 523px;
     background-color: #ffffff;
     margin: 0 auto;
 }
@@ -122,13 +123,13 @@ width: 30px;
   font-size: 25px;
 }
 
-span.active {
+.active {
   color:#34495e;
 }
-span.inactive {
+.inactive {
   color:#cccccc;
 }
-span.inactive:hover {
+.inactive:hover {
   color:#34495e;
 }
 #login {
@@ -259,4 +260,24 @@ button {
   width: 500px;
   margin: 0px auto;
   margin-bottom: 50px;
+}
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+a:hover{
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+#logout {
+  font-family: "Open Sans";
+  padding-left: 10px;
+  font-size: 16px;
+  color:#cccccc;
+}
+#logout:hover {
+  color:#34495e;
+}
+#profile_menu {
+  display: inline-block;
 }
