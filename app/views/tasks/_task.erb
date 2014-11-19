@@ -4,7 +4,7 @@
 		<br>
 		<span class="time"><%= task.created_at %></span>
 	</div>
-	<div class="col-md-4 pull-right">
+	<div class="col-md-4 pull-right" id="button_block">
 		<% unless task.next.nil? %>
 			<button class="up_button" onclick="move_up(<%= task.id %>)"></button>
 		<% end %>

@@ -82,7 +82,7 @@ code {
 .task {
 position: relative;
 padding: 20px 20px;
-border-bottom: 1px dashed #eaeaea;
+/*border-bottom: 1px dashed #eaeaea;*/
 min-height: 80px;
 width: 600px;
 background-color: white;
@@ -296,4 +296,11 @@ button#cancel_delete {
   text-decoration: underline;
   width: 85px;
   height: 30px;
+}
+#input_task:focus {
+  border-color: green;
+  border-style: solid;
+}
+#button_block {
+  text-align: end;
 }

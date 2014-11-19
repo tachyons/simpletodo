@@ -36,6 +36,8 @@ function confirm_delete_task (id){
 	        $('#task'+id).html(result);
 	    }
 	});
+	$('#task'+id).css('border-color', 'red');
+	$('#task'+id).css('border-style', 'solid');
 }
 function change_status(id) {
 	$.ajax({

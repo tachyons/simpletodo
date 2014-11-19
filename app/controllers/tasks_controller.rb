@@ -91,7 +91,6 @@ class TasksController < ApplicationController
     render :partial=>@task
   end
   def task_list
-    render :layout => false
     @tasks=@user.tasks.reverse.paginate(:page => params[:page], :per_page => 8)
   end
   def get_task_delete_confirm
