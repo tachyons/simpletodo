@@ -145,7 +145,8 @@ width: 30px;
   border-width: 1px;
   padding-left: 20px;
   background-color: #F1F1F1;
-  border-style: ridge;
+  border-style: solid;
+  border-radius: 3px;
 }
 .input-control:focus {
   background-color: white;
@@ -188,7 +189,7 @@ a#forgot_password {
 }
 button {
   border-style: none;
-  margin-left: 20px;
+  margin-left: 18px;
 }
 /* Sprite Section */
 .delete_button { 
@@ -269,15 +270,30 @@ a:hover{
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
 }
-#logout {
+#logout,#profile_link {
   font-family: "Open Sans";
   padding-left: 10px;
   font-size: 16px;
   color:#cccccc;
 }
-#logout:hover {
+#logout:hover,#profile_link:hover {
   color:#34495e;
 }
 #profile_menu {
   display: inline-block;
+}
+button#delete_task {
+  color: #34495e;
+  border-color: #999999;
+  border-style: solid;
+  width: 85px;
+  height: 30px;
+  font-weight: bold;
+  background-color: white;
+}
+button#cancel_delete {
+  background-color: white;
+  text-decoration: underline;
+  width: 85px;
+  height: 30px;
 }

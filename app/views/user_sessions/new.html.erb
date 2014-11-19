@@ -20,7 +20,7 @@
         </p>
         <p class="form_entry">
           <%= user_form.label :password %>
-          <%= user_form.text_field :password, :placeholder=>"Password",:type=>"password",:id=>"inputfpassword",:class=>"input-control pull-right",:required=>"true" %>
+          <%= user_form.password_field :password, :placeholder=>"Password",:type=>"password",:id=>"inputfpassword",:class=>"input-control pull-right",:required=>"true" %>
         </p>
         <div id="login-bottom">
          <button class="" type="submit" id="login_button">Sign in</button> <span ><a href="/password_resets/new" id="forgot_password">Forgot password</a></span>

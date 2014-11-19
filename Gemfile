@@ -4,7 +4,7 @@ gem 'will_paginate','~> 2.3.16'
 gem 'mysql'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'authlogic', '2.1.6'
-# gem 'rake', '~> 0.8.7'
+#gem 'rake', '~> 0.8.7'
 gem 'nifty-generators'
 
 # bundler requires these gems in all environments
@@ -13,11 +13,11 @@ gem 'nifty-generators'
 
 group :development do
   # bundler requires these gems in development
-  # gem 'rails-footnotes'
+   gem 'rails-footnotes'
 end
 
 group :test do
   # bundler requires these gems while running tests
-  # gem 'rspec'
-  # gem 'faker'
+   gem 'rspec'
+   gem 'faker'
 end

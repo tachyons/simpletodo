@@ -88,10 +88,15 @@ class TasksController < ApplicationController
   end
   def show
     @task = Task.find(params[:id])
+    render :partial=>@task
   end
   def task_list
     render :layout => false
     @tasks=@user.tasks.reverse.paginate(:page => params[:page], :per_page => 8)
+  end
+  def get_task_delete_confirm
+    @id=params[:id]
+    render :partial => "delete_confirm"
   end
   private
     def check_loggedin

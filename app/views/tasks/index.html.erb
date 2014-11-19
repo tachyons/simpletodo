@@ -6,12 +6,12 @@
 			</a>
 		  	<nav class="pull-right">
 			  	<div class="dropdown" id="profile_menu">
-					<a class="" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+					<a class="" type="button" id="profile_link" data-toggle="dropdown" aria-expanded="true">
 						<%= @user.name %>
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-						<li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="active"><%= @user.email %></a></li>
+						<li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#" class="inactive "><%= @user.email %></a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1" href="/users/change_password" class="active">Change Password</a></li>
 					</ul>
 				</div>
