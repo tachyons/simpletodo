@@ -81,13 +81,17 @@ code {
 }
 .task {
 position: relative;
-padding: 20px 20px;
+padding: 30px 25px;
 /*border-bottom: 1px dashed #eaeaea;*/
 min-height: 80px;
 width: 600px;
-background-color: white;
+background-color:#f4f4f4;
+border-width: 1px;
+border-style: solid;
+border-color:#cccccc;
 margin-bottom: 20px;
 font-family: "Open Sans";
+font-weight: 100;
 font-size: 16px;
 color:#34495e;
 margin:20px auto;
@@ -102,16 +106,19 @@ width: 30px;
     margin-bottom: 41px;
 }
 #login_block {
+    border-radius: 3px;
     width: 600px;
     min-height: 350px;
     background-color: #ffffff;
     margin: 0 auto;
+    box-shadow: 1px 3px 0px 0.00px #d5d5d5;
 }
 #signup_block {
-    width: 600px;
-    min-height: 523px;
-    background-color: #ffffff;
-    margin: 0 auto;
+  border-radius: 3px;
+  width: 600px;
+  min-height: 523px;
+  background-color: #ffffff;
+  margin: 0 auto;
 }
 #login_top {
   padding-top: 37px;
@@ -119,6 +126,7 @@ width: 30px;
   padding-right:30px;
   padding-bottom: 32px;
   font-family: "Open Sans";
+  font-weight: 100;
   /*font-weight: 300; */
   font-size: 25px;
 }
@@ -147,13 +155,15 @@ width: 30px;
   background-color: #F1F1F1;
   border-style: solid;
   border-radius: 3px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 .input-control:focus {
   background-color: white;
 }
 label {
   font-family: "Open Sans";
-  font-weight: 300;
+  font-weight: 100;
   font-size: 18px;
   margin-top: 13px;
 }
@@ -167,6 +177,8 @@ label {
   font-size:20px;
   font-weight: bold;
   border-width: 0px;
+  font-family: "Open Sans";
+  font-weight: bold;
 }
 p.form_entry {
   overflow: hidden;
@@ -183,13 +195,20 @@ a#forgot_password {
   width: 600px;
   height:50px;
   /*height:20px;*/
-
+  box-shadow: 1px 3px 0px 0.00px #d5d5d5;
+  border-style: none;
   margin:0;
   padding-left: 50px;
 }
+#input_task:focus {
+  border-color: #1bbc9b;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: none;
+}
 button {
   border-style: none;
-  margin-left: 18px;
+  margin-left: 17px;
 }
 /* Sprite Section */
 .delete_button { 
@@ -256,11 +275,12 @@ button {
   font-family: "Open Sans";
   font-size: 12px;
   color:#999999;
+  font-weight: 100;
 }
 #top_nav {
-  width: 500px;
+  width: 600px;
   margin: 0px auto;
-  margin-bottom: 50px;
+  /*margin-bottom: 50px;*/
 }
 a {
   color: inherit; /* blue colors for links too */
@@ -272,9 +292,11 @@ a:hover{
 }
 #logout,#profile_link {
   font-family: "Open Sans";
+  font-weight: 100;
   padding-left: 10px;
   font-size: 16px;
-  color:#cccccc;
+  /*color:#cccccc;*/
+  color: #999;
 }
 #logout:hover,#profile_link:hover {
   color:#34495e;
@@ -284,6 +306,8 @@ a:hover{
 }
 button#delete_task {
   color: #34495e;
+  border-width: 1px;
+  border-radius: 3px;
   border-color: #999999;
   border-style: solid;
   width: 85px;
@@ -298,9 +322,17 @@ button#cancel_delete {
   height: 30px;
 }
 #input_task:focus {
-  border-color: green;
+  border-color: #1bbc9b;
   border-style: solid;
+  border-width: 1px;
 }
-#button_block {
+.button_block {
   text-align: end;
+}
+.button_block button {
+  vertical-align: middle;
+}
+#menu_list  a {
+  padding: 10px;
+  text-align: center;
 }

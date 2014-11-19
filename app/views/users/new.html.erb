@@ -19,12 +19,12 @@
           <%= user_form.text_field :email, :placeholder=>"example@gmail.com",:type=>"text",:id=>"inputemail",:class=>"input-control pull-right" %>
         </p>
         <p class="form_entry">
-          <%= user_form.label :password %>
-          <%= user_form.password_field :password_confirmation, :placeholder=>" Confirm Password",:type=>"password",:id=>"inputpassword",:class=>"input-control pull-right",:required=>"true" ,:value=>""%>
-        </p>
-        <p class="form_entry">
-          <%= user_form.label :Confirm%>
+          <%= user_form.label :password%>
           <%= user_form.password_field :password, :placeholder=>"",:type=>"password",:id=>"confirmpassword",:class=>"input-control pull-right",:required=>"true" ,:value=>""%>
+        </p>
+         <p class="form_entry">
+          <%= user_form.label :confirm %>
+          <%= user_form.password_field :password_confirmation, :placeholder=>" Confirm Password",:type=>"password",:id=>"inputpassword",:class=>"input-control pull-right",:required=>"true" ,:value=>""%>
         </p>
           <div id="login-bottom">
             <button class="" type="submit" id="login_button">Sign Up</button> 

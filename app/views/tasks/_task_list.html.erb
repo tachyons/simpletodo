@@ -1,0 +1,4 @@
+<%= render :partial => @tasks %>
+<% if @tasks.next_page %>
+	<button id="load_next" onclick="load_next(<%= @tasks.next_page %>)">load</button>
+<% end %>

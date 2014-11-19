@@ -6,16 +6,25 @@ $(document).ready(function(){
       	if (task.length <=0) {
       		alert("Nothing to do ?? , Why you here ?? ;-)")
       	} else {
-      		$.post( "tasks/create", {user:{ name: task, user_id: user_id,status:0 }} ).done(function( data ) {
+      		$.post( "/tasks/create", {user:{ name: task, user_id: user_id,status:0 }} ).done(function( data ) {
 	   		$('#task_list').prepend(data);
 	  	});
       	$('#input_task').val('');
      }
-      //alert(task);
-      
-      //load_task(id)
     }
   });
+  $('#task_list').infinitescroll({
+ 
+    navSelector  : '#page-nav',    // selector for the paged navigation
+    nextSelector : '#page-nav a',    
+                   // selector for the NEXT link (to page 2)
+    itemSelector : ".task",
+    loading: {
+          finishedMsg: 'No more tasks to load.',
+          img: 'http://i.imgur.com/6RMhx.gif'
+        }
+  });
+  
 });
 function delete_task (id){
 	$.ajax({
@@ -29,14 +38,14 @@ function delete_task (id){
 }
 function confirm_delete_task (id){
 	$.ajax({
-	    url: 'tasks/get_task_delete_confirm/'+id,
+	    url: '/tasks/get_task_delete_confirm/'+id,
 	    type: 'GET',
 	    success: function(result) {
 	        //alert("success")
 	        $('#task'+id).html(result);
 	    }
 	});
-	$('#task'+id).css('border-color', 'red');
+	$('#task'+id).css('border-color', '#c1392b');
 	$('#task'+id).css('border-style', 'solid');
 }
 function change_status(id) {
@@ -83,6 +92,16 @@ function cancel_delete (id) {
 	    type: 'GET',
 	    success: function(result) {
 	        $('#task'+id).replaceWith(result);
+	    }
+	});
+}
+function load_next(page) {
+	$('#load_next').remove();
+	$.ajax({
+	    url: '/tasks/task_list?page='+page,
+	    type: 'GET',
+	    success: function(result) {
+	        $('#task_list').append(result);
 	    }
 	});
 }
