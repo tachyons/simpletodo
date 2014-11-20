@@ -1,4 +1,5 @@
-source :gemcutter
+source "https://rubygems.org"
+ruby "1.8.7"
 gem 'rails', '=2.3.8'
 gem 'will_paginate','~> 2.3.16'
 gem 'mysql'
