@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source "http://rubygems.org"
 ruby "1.8.7"
 gem 'rails', '=2.3.8'
 gem 'will_paginate','~> 2.3.16'
@@ -15,6 +15,7 @@ gem 'nifty-generators'
 group :development do
   # bundler requires these gems in development
    gem 'rails-footnotes'
+    gem "debugger"
 end
 
 group :test do
