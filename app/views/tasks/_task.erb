@@ -6,10 +6,10 @@
 	</div>
 	<div class="col-md-4 pull-right button_block">
 		<% unless task.next.nil? %>
-			<button class="up_button" onclick="move_up(<%= task.id %>)"></button>
+			<button class="up_button" onclick="move_up(<%= task.position %>)"></button>
 		<% end %>
 		<% unless task.previous.nil? %>
-			<button class="down_button" onclick="move_down(<%= task.id %>)"></button>
+			<button class="down_button" onclick="move_down(<%= task.position %>)"></button>
 		<% end%>
 		<button class="delete_button" onclick="confirm_delete_task(<%= task.id %>)"></button>
 		<!-- <button class="delete_button" onclick="delete_task(< %= task.id %>)"></button> -->

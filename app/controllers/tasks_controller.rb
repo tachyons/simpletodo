@@ -6,6 +6,8 @@ class TasksController < ApplicationController
   	@task=Task.new(params[:user])
     @task.user_id=@user.id;
     if @task.save
+      @task.position=Task.last.id;
+      @task.save
       render :partial => 'task'
     else
     end
@@ -13,11 +15,11 @@ class TasksController < ApplicationController
   def index
   	#@tasks=@user.tasks
     if @user
-      @tasks=@user.tasks.reverse.paginate(:page => params[:page], :per_page => 8)
+      @tasks=@user.tasks.paginate(:page => params[:page], :per_page => 8,:order=> "position DESC")
     end
   end
   def task_list
-    @tasks=@user.tasks.reverse.paginate(:page => params[:page], :per_page => 8)
+    @tasks=@user.tasks.reverse.paginate(:page => params[:page], :per_page => 8,:order=> "position DESC")
     render :partial => "task_list"
   end
 
@@ -45,45 +47,40 @@ class TasksController < ApplicationController
     end
   end
   def move_down
-    @id=params[:task][:id]
-    @task = @user.tasks.find(@id)
+    @position=params[:task][:position]
+    @task = @user.tasks.find_by_position(@position)
     @up_task=@task.previous
-    p "Current task #{@task.id}, uptask: #{@up_task.id}"
     if @task && @up_task
-      @task_id=@task.id;
-      @uptask_id=@up_task.id;
+      @task_position=@task.position;
+      @uptask_position=@up_task.position;
       #Model.update_all({:id => new_id}, {:id => old_id})
-      Task.update_all({:id => -1}, {:id => @uptask_id})
-      Task.update_all({:id => -2}, {:id => @task_id})
-      Task.update_all({:id => @uptask_id}, {:id => -2})
-      Task.update_all({:id => @task_id}, {:id => -1})
-
+      @task.position=@uptask_position
+      @up_task.position=@task_position
       # p @task
       if @task.save! && @up_task.save!
-        @tasks=@user.tasks.reverse
+        @tasks=@user.tasks.sort_by(&:"position").reverse
         render :partial => @tasks
+        #redirect_to "task_list"
       else
         render :text => @task.errors
       end
     end
   end
   def move_up
-    @id=params[:task][:id]
-    @task = @user.tasks.find(@id)
+    @position=params[:task][:position]
+    @task = @user.tasks.find_by_position(@position)
     @next_task=@task.next
     #p "Current task #{@task.id}, uptask: #{@up_task.id}"
     if @task && @next_task
-      @task_id=@task.id;
-      @nexttask_id=@next_task.id;
-      #Model.update_all({:id => new_id}, {:id => old_id})
-      Task.update_all({:id => -1}, {:id => @nexttask_id})
-      Task.update_all({:id => -2}, {:id => @task_id})
-      Task.update_all({:id => @nexttask_id}, {:id => -2})
-      Task.update_all({:id => @task_id}, {:id => -1})
+      @task_position=@task.position;
+      @nexttask_position=@next_task.position;
+      #swap
+      @task.position=@nexttask_position
+      @next_task.position=@task_position
 
       # p @task
       if @task.save! && @next_task.save!
-        @tasks=@user.tasks.reverse
+        @tasks=@user.tasks.sort_by(&:"position").reverse
         render :partial => @tasks
       else
         render :text => @task.errors

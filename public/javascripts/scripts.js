@@ -62,11 +62,11 @@ function change_status(id) {
 	    }
 	});
 }
-function move_up(id) {
+function move_up(position) {
 	$.ajax({
 	    url: '/tasks/move_up',
 	    type: 'PUT',
-	    data: { task:{id: id} },
+	    data: { task:{position: position} },
 	    success: function(result) {
 	  //       var prev_div= $('#task'+id).prev().attr('id');
 	  //       try {
@@ -80,11 +80,11 @@ function move_up(id) {
 	    }
 	});
 }
-function move_down(id) {
+function move_down(position) {
 	$.ajax({
 	    url: '/tasks/move_down',
 	    type: 'PUT',
-	    data: { task:{id: id} },
+	    data: { task:{position: position} },
 	    success: function(result) {
 	        $('#task_list').html(result);
 	    }

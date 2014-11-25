@@ -13,7 +13,7 @@ ActiveRecord::Schema.define(:version => 20141117124017) do
 
   create_table "tasks", :force => true do |t|
     t.string   "name"
-    t.integer  "order"
+    t.integer  "position"
     t.boolean  "status"
     t.integer  "user_id"
     t.datetime "created_at"
