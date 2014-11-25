@@ -2,6 +2,9 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   attr_accessor :password_confirmation
+  validates_presence_of :name
+  validates_presence_of :email
+  validates_presence_of :password
   has_many:tasks
   acts_as_authentic do |c|
     c.validates_length_of_login_field_options :within=>1..30 #username can be 1 to 30 characters long

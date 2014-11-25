@@ -2,10 +2,11 @@ source "http://rubygems.org"
 ruby "1.8.7"
 gem 'rails', '=2.3.8'
 gem 'will_paginate','~> 2.3.16'
+gem 'i18n' ,'0.4.0'
 gem 'mysql'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'authlogic', '2.1.6'
-gem 'rake', '~> 0.8.7'
+gem 'rake', '~> 0.8.7',:require => false
 gem 'nifty-generators'
 
 # bundler requires these gems in all environments
@@ -14,7 +15,7 @@ gem 'nifty-generators'
 
 group :development do
   # bundler requires these gems in development
-   gem 'rails-footnotes'
+  gem 'rails-footnotes'
     #gem "debugger"
 end
 

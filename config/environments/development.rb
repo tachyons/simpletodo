@@ -16,7 +16,7 @@ config.action_controller.perform_caching             = false
 # Don't care if the mailer can't send
 config.action_mailer.perform_deliveries = true 
 config.action_mailer.raise_delivery_errors = true
-config.action_mailer.default_url_options = { :host =>"192.168.1.211:3000" }
+config.action_mailer.default_url_options = { :host =>"192.168.1.42:3000" }
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
   :enable_starttls_auto => true,  

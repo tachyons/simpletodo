@@ -1,15 +1,17 @@
-<h1>Update your password</h1>
-
-<p>Please enter the new password below and then press "Update Password".</p>
-
-<% form_tag password_reset_path, :method => :put do %>
-  <div class="row">
-      <%= label_tag :password, "New password" %>
-      <%= password_field_tag :password %>
-    </div>
-    <div class="row">
-      <%= label_tag :password_confirmation, "Confirm password" %>
-      <%= password_field_tag :password_confirmation %>
-    </div>
-  <%= submit_tag "Update Password" %>
-<% end %>
+<div id="wrapper" style="width:100%; text-align:center">
+  <a href="/tasks">  <%= image_tag 'Logo.png',:id => "logo_image"  %></a>
+  <h2>Update Password</h2>
+</div>
+<div id="password_reset_block">
+	<% form_tag password_reset_path, :method => :put do %>
+	  <div class="form_entry">
+	      <label for="password">New Password</label>
+	      <input name="password" type="password" class="input-control pull-right"/>
+	    </div>
+	    <div class="from_entry">
+	    	<label for="password_confirmation">Confrim Password</label>
+	    	<input name="password_confirmation" type="password" class="input-control pull-right"/>
+	    </div>
+	  <button type="submit" class="btn" id="login_button">Update</button>
+	<% end %>
+</div>

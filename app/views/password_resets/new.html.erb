@@ -1,8 +1,13 @@
-<h1>Reset Password</h1>
-
-<p>Please enter your email address below and then press "Reset Password".</p>
-
-<% form_tag password_resets_path do %>
-  <%= text_field_tag :email %>
-  <%= submit_tag "Reset Password" %>
-<% end %>
+<div id="wrapper" style="width:100%; text-align:center">
+  <a href="/tasks">  <%= image_tag 'Logo.png',:id => "logo_image"  %></a>
+  <h2>Reset Password</h2>
+</div>
+<div id="password_reset_block">
+	<% form_tag password_resets_path do %>
+	<div class="form_entry">
+		<label for="email">Email</label>
+	  	<input name="email" class="input-control pull-right"/>
+	 </div>
+	  <button type="submit" class="btn" id="login_button">Submit</button>
+	<% end %>
+</div>

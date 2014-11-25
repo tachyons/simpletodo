@@ -11,6 +11,9 @@ body {
 */  margin-bottom: 60px;
   background-color: #e8e8e8;
 }
+.container {
+  width: 650px;
+}
 .footer {
   position: absolute;
   bottom: 0;
@@ -162,6 +165,7 @@ width: 30px;
   background-color: white;
 }
 label {
+  float: left;
   font-family: "Open Sans";
   font-weight: 100;
   font-size: 18px;
@@ -180,7 +184,7 @@ label {
   font-family: "Open Sans";
   font-weight: bold;
 }
-p.form_entry {
+div.form_entry {
   overflow: hidden;
 }
 a#forgot_password {
@@ -334,5 +338,22 @@ button#cancel_delete {
 }
 #menu_list  a {
   padding: 10px;
+  text-align: left;
+}
+#password_reset_block {
+  border-radius: 3px;
+  padding: 20px;
+  width: 600px;
+  min-height: 200px;
+  background-color: #ffffff;
+  margin: 0 auto;
+  box-shadow: 1px 3px 0px 0.00px #d5d5d5;
+
+}
+#infscr-loading {
   text-align: center;
+}
+#load_next {
+  text-align: center;
+  
 }

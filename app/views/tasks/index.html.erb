@@ -26,12 +26,12 @@
 	<div id="task_list">
 		<%= render :partial => @tasks %>
 		<% if @tasks.next_page %>
-			<nav id="page-nav">
+			<nav id="page-nav" style="width:100%; text-align:center">
 				<button id="load_next" onclick="load_next(<%= @tasks.next_page %>)">load</button>
 			  	<a href="/tasks/task_list?page=<%=@tasks.next_page %>"></a>
 			</nav>
 		<% end %>
 		<!-- < %= link_to 'Load More Posts', tasks_path(:page => @tasks.next_page), :class => 'load-more-posts', :remote => true if @tasks.next_page %> -->
 	</div>
-	</div>
+</div>
 <div id="status"></div>

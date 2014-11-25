@@ -15,9 +15,9 @@ GEM
       activesupport
     bcrypt-ruby (3.0.1)
     diff-lcs (1.2.5)
-    faker (1.4.3)
-      i18n (~> 0.5)
-    i18n (0.6.11)
+    faker (1.0.1)
+      i18n (~> 0.4)
+    i18n (0.4.0)
     mysql (2.9.1)
     nifty-generators (0.4.6)
     rack (1.1.6)
@@ -29,7 +29,7 @@ GEM
       activesupport (= 2.3.8)
       rake (>= 0.8.3)
     rails-footnotes (3.6.7)
-    rake (10.3.2)
+    rake (0.8.7)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
@@ -51,9 +51,11 @@ DEPENDENCIES
   authlogic (= 2.1.6)
   bcrypt-ruby (~> 3.0.0)
   faker
+  i18n (= 0.4.0)
   mysql
   nifty-generators
   rails (= 2.3.8)
   rails-footnotes
+  rake (~> 0.8.7)
   rspec
   will_paginate (~> 2.3.16)

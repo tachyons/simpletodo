@@ -9,23 +9,33 @@
   <hr/>
   <div id="signup">
     <% form_for @user , :as => :user do |user_form| %>
-          <%= user_form.error_messages %>
-        <p class="form_entry">
+           <% unless user_form.error_messages.empty? %>
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert">
+                  <span aria-hidden="true">&times;</span>
+                  <span class="sr-only">Close</span>
+                </button>
+                <%= 
+                 user_form.error_messages :header_message => "Invalid details!",:message => "You'll need to fix the following issues:",:header_tag => :h3 
+                 %>
+            </div>
+            <% end %>
+        <div class="form_entry">
           <%= user_form.label :name %>
           <%= user_form.text_field :name, :placeholder=>"",:type=>"text",:id=>"inputname",:class=>"input-control pull-right" %>
-        </p>
-        <p class="form_entry">
+        </div>
+        <div class="form_entry">
           <%= user_form.label :email %>
           <%= user_form.text_field :email, :placeholder=>"example@gmail.com",:type=>"text",:id=>"inputemail",:class=>"input-control pull-right" %>
-        </p>
-        <p class="form_entry">
+        </div>
+        <div class="form_entry">
           <%= user_form.label :password%>
           <%= user_form.password_field :password, :placeholder=>"",:type=>"password",:id=>"confirmpassword",:class=>"input-control pull-right",:required=>"true" ,:value=>""%>
-        </p>
-         <p class="form_entry">
+        </div>
+         <div class="form_entry">
           <%= user_form.label :confirm %>
           <%= user_form.password_field :password_confirmation, :placeholder=>" Confirm Password",:type=>"password",:id=>"inputpassword",:class=>"input-control pull-right",:required=>"true" ,:value=>""%>
-        </p>
+        </div>
           <div id="login-bottom">
             <button class="" type="submit" id="login_button">Sign Up</button> 
           </div>

@@ -4,26 +4,29 @@ $(document).ready(function(){
     if(key == 13) {
       	var task = $('#input_task').val();
       	if (task.length <=0) {
-      		alert("Nothing to do ?? , Why you here ?? ;-)")
+      		// alert("Nothing to do ?? , Why you here ?? ;-)")
       	} else {
       		$.post( "/tasks/create", {user:{ name: task, user_id: user_id,status:0 }} ).done(function( data ) {
-	   		$('#task_list').prepend(data);
-	  	});
+	   			$('#task_list').prepend(data);
+	   			update_first_and_last();
+	  		});
       	$('#input_task').val('');
      }
     }
   });
-  $('#task_list').infinitescroll({
+ 	$('#task_list').infinitescroll({
  
-    navSelector  : '#page-nav',    // selector for the paged navigation
-    nextSelector : '#page-nav a',    
-                   // selector for the NEXT link (to page 2)
-    itemSelector : ".task",
-    loading: {
-          finishedMsg: 'No more tasks to load.',
-          img: 'http://i.imgur.com/6RMhx.gif'
-        }
-  });
+		navSelector  : '#page-nav',    // selector for the paged navigation
+		nextSelector : '#page-nav a',    
+		               // selector for the NEXT link (to page 2)
+		itemSelector : ".task",
+		donetext     : " we've hit the end" ,
+		loading: {
+			speed: 'slow',
+		    finishedMsg: 'No more tasks to load.',
+	        img: '/images/ajax-loader.gif'
+	        }
+	  });
   
 });
 function delete_task (id){
@@ -33,6 +36,7 @@ function delete_task (id){
 	    success: function(result) {
 	        //alert("success")
 	        $('#task'+id).remove();
+	        update_first_and_last();
 	    }
 	});
 }
@@ -102,6 +106,22 @@ function load_next(page) {
 	    type: 'GET',
 	    success: function(result) {
 	        $('#task_list').append(result);
+	    }
+	});
+}
+function update_first_and_last() {
+	update_task($(".task:last"));
+	update_task($(".task:first"));
+	update_task($(".task:first").next());
+}
+function update_task(task) {
+	var id_string=task.attr('id');
+	var id=parseInt(id_string.replace("task", ""));
+	$.ajax({
+	    url: '/tasks/show/'+id,
+	    type: 'GET',
+	    success: function(result) {
+	        $("#"+id_string).replaceWith(result);
 	    }
 	});
 }

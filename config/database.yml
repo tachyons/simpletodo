@@ -34,7 +34,7 @@ test:
   database: todo_test
   pool: 5
   username: root
-  password:
+  password: mysqlroot
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -44,5 +44,5 @@ production:
   database: todo_production
   pool: 5
   username: root
-  password: 
+  password: mysqlroot
   socket: /var/run/mysqld/mysqld.sock

@@ -1,30 +1,37 @@
 <% title "New User Session" %>
-
-
-
 <div id="wrapper" style="width:100%; text-align:center">
   <%= image_tag 'Logo.png',:id => "logo_image"  %>
 </div>
 <div id="login_block">
-<div id="login_top">
-  <span class="pull-left active"><a href="<%= login_path %>">Login</a></span>
-  <span class="pull-right inactive"><a href="/users/new">Sign up</a></span>
-</div>
-<hr/>
-<div id="login">
-  <% form_for @user_session,:html=>{:class=>"form-signin_backup"} do |user_form| %>
-  <%= user_form.error_messages %>
-      <p class="form_entry">
-        <%= user_form.label :email %>
-          <%= user_form.text_field :email, :placeholder=>"example@gmail.com",:type=>"text",:id=>"inputemail",:class=>"input-control pull-right" %>
-        </p>
-        <p class="form_entry">
-          <%= user_form.label :password %>
-          <%= user_form.password_field :password, :placeholder=>"Password",:type=>"password",:id=>"inputfpassword",:class=>"input-control pull-right",:required=>"true" %>
-        </p>
-        <div id="login-bottom">
-         <button class="" type="submit" id="login_button">Sign in</button> <span ><a href="/password_resets/new" id="forgot_password">Forgot password</a></span>
-        </div>
-    <% end %>
-</div>
+  <div id="login_top">
+    <span class="pull-left active"><a href="<%= login_path %>">Login</a></span>
+    <span class="pull-right inactive"><a href="/users/new">Sign up</a></span>
+  </div>
+  <hr/>
+  <div id="login">
+    <% form_for @user_session,:html=>{:class=>"form-signin_backup"} do |user_form| %>
+    <% unless user_form.error_messages.empty? %>
+      <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <%= 
+           user_form.error_messages :header_message => "Invalid details!",:message => "You'll need to fix the following issues:",:header_tag => :h3 
+           %>
+      </div>
+      <% end %>
+        <div class="form_entry">
+          <%= user_form.label :email %>
+            <%= user_form.text_field :email, :placeholder=>"example@gmail.com",:type=>"text",:id=>"inputemail",:class=>"input-control pull-right" %>
+          </div>
+          <div class="form_entry">
+            <%= user_form.label :password %>
+            <%= user_form.password_field :password, :placeholder=>"Password",:type=>"password",:id=>"inputfpassword",:class=>"input-control pull-right",:required=>"true" %>
+          </div>
+          <div id="login-bottom">
+           <button class="" type="submit" id="login_button">Sign in</button> <span ><a href="/password_resets/new" id="forgot_password">Forgot password</a></span>
+          </div>
+      <% end %>
+  </div>
 </div>

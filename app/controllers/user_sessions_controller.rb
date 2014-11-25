@@ -1,6 +1,11 @@
 class UserSessionsController < ApplicationController
   def new
-    @user_session = UserSession.new
+    if UserSession.find
+      flash[:notice] = "you are already logged in."
+      redirect_to root_url
+    else
+      @user_session = UserSession.new
+    end
   end
 
   def create

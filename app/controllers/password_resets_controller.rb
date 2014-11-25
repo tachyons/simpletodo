@@ -31,7 +31,8 @@ class PasswordResetsController < ApplicationController
     # don't want the user to be signed in automatically.
     if @user.save
       flash[:success] = "Your password was successfully updated"
-      redirect_to @user
+      #redirect_to @user
+      redirect_to root_url
     else
       flash.now[:error]=@user.errors.full_messages
       render :action => :edit
