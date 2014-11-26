@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	$('#input_task').keypress(function (e) {
 	var key = e.which;
-	if(key == 13) {
+	if(key === 13) {
 		var task = $('#input_task').val();
 		if (task.length <=0) {
 			// alert("Nothing to do ?? , Why you here ?? ;-)")
@@ -10,13 +10,13 @@ $(document).ready(function(){
 				$('#task_list').prepend(data);
 				update_first_and_last();
 			});
-		$('#input_task').val('');
-	}
+			$('#input_task').val('');
+		}
 	}
 });
 	$('#task_list').infinitescroll({
 
-		navSelector  : '#page-nav',	// selector for the paged navigation
+		navSelector: '#page-nav',	// selector for the paged navigation
 		nextSelector : '#page-nav a',	
 		// selector for the NEXT link (to page 2)
 		itemSelector : ".task",
@@ -24,19 +24,18 @@ $(document).ready(function(){
 		loading: {
 			speed: 'slow',
 			finishedMsg: 'No more tasks to load.',
-		   img: '/images/ajax-loader.gif'
-		   }
-	  });
-  
+			img: '/images/ajax-loader.gif'
+			}
+	 });
 });
 function delete_task (id){
 	$.ajax({
 		url: '/tasks/'+id,
 		type: 'DELETE',
 		success: function(result) {
-		   //alert("success")
-		   $('#task'+id).remove();
-		   update_first_and_last();
+			//alert("success")
+			$('#task'+id).remove();
+			update_first_and_last();
 		}
 	});
 }
@@ -58,7 +57,7 @@ function change_status(id) {
 		type: 'PUT',
 		data: { task:{id: id} },
 		success: function(result) {
-		   $('#task'+id).replaceWith(result);
+			$('#task'+id).replaceWith(result);
 		}
 	});
 }
@@ -68,15 +67,8 @@ function move_up(position) {
 		type: 'PUT',
 		data: { task:{position: position} },
 		success: function(result) {
-	  //	  var prev_div= $('#task'+id).prev().attr('id');
-	  //	  try {
-	  //	  	$("#task"+id).after($("#"+prev_div));
-	  //	  }
-	  //	  catch(e) {
-	  //	  	alert(e.message);
-			// }
 			$('#task_list').html(result);
-		   
+			
 		}
 	});
 }
@@ -86,7 +78,7 @@ function move_down(position) {
 		type: 'PUT',
 		data: { task:{position: position} },
 		success: function(result) {
-		   $('#task_list').html(result);
+			$('#task_list').html(result);
 		}
 	});
 }
@@ -95,7 +87,7 @@ function cancel_delete (id) {
 		url: '/tasks/show/'+id,
 		type: 'GET',
 		success: function(result) {
-		   $('#task'+id).replaceWith(result);
+			$('#task'+id).replaceWith(result);
 		}
 	});
 }
@@ -105,7 +97,7 @@ function load_next(page) {
 		url: '/tasks/task_list?page='+page,
 		type: 'GET',
 		success: function(result) {
-		   $('#task_list').append(result);
+			$('#task_list').append(result);
 		}
 	});
 }
@@ -121,7 +113,7 @@ function update_task(task) {
 		url: '/tasks/show/'+id,
 		type: 'GET',
 		success: function(result) {
-		   $("#"+id_string).replaceWith(result);
+			$("#"+id_string).replaceWith(result);
 		}
 	});
 }
