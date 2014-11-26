@@ -16,6 +16,9 @@ gem 'nifty-generators'
 group :development do
   # bundler requires these gems in development
   gem 'rails-footnotes'
+  gem 'brakeman', :require => false
+  # gem 'guard', '1.8.3'
+  # gem 'guard-brakeman'
     #gem "debugger"
 end
 

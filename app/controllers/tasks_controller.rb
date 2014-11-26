@@ -81,6 +81,7 @@ class TasksController < ApplicationController
       # p @task
       if @task.save! && @next_task.save!
         @tasks=@user.tasks.sort_by(&:"position").reverse
+        @tasks=@tasks.paginate(:page => params[:page], :per_page => 8)
         render :partial => @tasks
       else
         render :text => @task.errors
