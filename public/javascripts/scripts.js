@@ -1,19 +1,19 @@
 $(document).ready(function(){
 	$('#input_task').keypress(function (e) {
-	var key = e.which;
-	if(key === 13) {
-		var task = $('#input_task').val();
-		if (task.length <=0) {
-			// alert("Nothing to do ?? , Why you here ?? ;-)")
-		} else {
-			$.post( "/tasks/create", {user:{ name: task, user_id: user_id,status:0 }} ).done(function( data ) {
-				$('#task_list').prepend(data);
-				update_first_and_last();
-			});
-			$('#input_task').val('');
+		var key = e.which;
+		if(key === 13) {
+			var task = $('#input_task').val();
+			if (task.length <=0) {
+				// alert("Nothing to do ?? , Why you here ?? ;-)")
+			} else {
+				$.post( "/tasks/create", {user:{ name: task, user_id: user_id,status:0 }} ).done(function( data ) {
+					$('#task_list').prepend(data);
+					update_first_and_last();
+				});
+				$('#input_task').val('');
+			}
 		}
-	}
-});
+	});
 	$('#task_list').infinitescroll({
 
 		navSelector: '#page-nav',	// selector for the paged navigation
@@ -26,7 +26,20 @@ $(document).ready(function(){
 			finishedMsg: 'No more tasks to load.',
 			img: '/images/ajax-loader.gif'
 			}
-	 });
+	});
+	$("#progress-slider").change(function(event) {
+		alert($(this).val());
+		var id=parseInt($("#task_id").html());
+		var progress=$(this).val();
+		$.ajax({
+		url: '/tasks/change_progress',
+		type: 'PUT',
+			data: { task:{id: id,progress:progress} },
+			success: function(result) {
+				$('#task'+id).replaceWith(result);
+			}
+		});
+	});
 });
 function delete_task (id){
 	$.ajax({
@@ -67,7 +80,8 @@ function move_up(position) {
 		type: 'PUT',
 		data: { task:{position: position} },
 		success: function(result) {
-			$('#task_list').html(result);
+			$("#task"+).insertBefore($(this).prev('.div1'));
+			 $('#task_list').html(result);
 			
 		}
 	});

@@ -18,6 +18,12 @@
 				<a href="/logout" id="logout">Logout</a>
 			</nav>
 		</div>
+		<div id="tab_nav" class="row">
+			<ul class="nav nav-tabs">
+			  <li role="presentation" <% unless @tab=="completed" %> class="active" <% end %>><a href="/tasks">Home</a></li>
+			  <li role="presentation" <% if @tab=="completed" %> class="active" <% end %>><a href="/tasks?completed=true">Completed</a></li>
+			</ul>
+		</div>
 	  	<div id="input">
 			<input type="text" name="" id="input_task" class="form-control_back" value="" required="required" pattern="" title="" placeholder="Add your todo Entry hit 'Enter' to post">
 			<span id="input_img"></span>

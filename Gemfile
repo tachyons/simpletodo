@@ -8,6 +8,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'authlogic', '2.1.6'
 gem 'rake', '~> 0.8.7',:require => false
 gem 'nifty-generators'
+gem 'rails_xss'
 
 # bundler requires these gems in all environments
 # gem 'nokogiri', '1.4.2'
@@ -17,6 +18,8 @@ group :development do
   # bundler requires these gems in development
   gem 'rails-footnotes'
   gem 'brakeman', :require => false
+  gem 'hirb'
+  # gem "query_reviewer"
   # gem 'guard', '1.8.3'
   # gem 'guard-brakeman'
     #gem "debugger"

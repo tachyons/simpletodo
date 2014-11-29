@@ -1,1 +1,11 @@
-<%= @task.id %>
+<span id="task_id"><%= @task.id %> </span> <br/>
+<%= @task.name %> <br/>
+<%= time_ago_in_words(@task.created_at) %> <br/>
+<input type="range" min=0 max=100 step=5 value=<%= @task.progress %> name="progress-slider" id="progress-slider">
+<h2>Comments</h2>
+<%= render @task.comments %>
+ 
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
+

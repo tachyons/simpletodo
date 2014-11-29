@@ -15,11 +15,23 @@ class TasksController < ApplicationController
   def index
   	#@tasks=@user.tasks
     if @user
-      @tasks=@user.tasks.paginate(:page => params[:page], :per_page => 8,:order=> "position DESC")
+      if params[:completed]=="true"
+        @tasks=@user.tasks.find_all_by_status(1)
+        @tab="completed"
+      else
+        @tasks=@user.tasks.find_all_by_status(0)
+        @tab="home"
+      end
+       @tasks= @tasks.paginate(:page => params[:page], :per_page => 8,:order=> "position DESC")
     end
   end
   def task_list
-    @tasks=@user.tasks.reverse.paginate(:page => params[:page], :per_page => 8,:order=> "position DESC")
+    if @tab="completed"
+      @tasks=@user.tasks.find_all_by_status(1)
+    else
+      @tasks=@user.tasks.find_all_by_status(0)
+    end
+    @tasks= @tasks.paginate(:page => params[:page], :per_page => 8,:order=> "position DESC")
     render :partial => "task_list"
   end
 
@@ -89,12 +101,28 @@ class TasksController < ApplicationController
     end
   end
   def show
-    @task = Task.find(params[:id])
-    render :partial=>@task
+    @task = @user.tasks.find(params[:id])
+    if request.xhr? #TODO remove this workaround 
+      render :partial => @task
+    end
   end
   def get_task_delete_confirm
     @id=params[:id]
     render :partial => "delete_confirm"
+  end
+  def change_progress
+    #TODO to be secured
+    @task = @user.tasks.find(params[:task][:id])
+    previous_progress=@task.progress;
+    @task.progress=params[:task][:progress]
+    if @task.save
+      #create a new comment
+      comment=Comment.new
+      comment.task_id=params[:task][:id];
+      comment.user_id=current_user.id;
+      comment.body="progress changed to #{params[:task][:progress]} from #{previous_progress}"
+      comment.save
+    end
   end
   private
     def check_loggedin

@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_presence_of :password ,:on => :create
   has_many:tasks
+  has_many:comments
   acts_as_authentic do |c|
     c.validates_length_of_login_field_options :within=>1..30 #username can be 1 to 30 characters long
     c.validates_format_of_login_field_options = {:with => /^[a-zA-Z0-9_]+$/, :message => I18n.t('error_messages.login_invalid', :default => "should use only alphabets, numbers and underscores no other characters.")} #username can only contain alphabets, numbers and "_" no other characters permitted

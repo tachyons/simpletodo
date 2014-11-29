@@ -33,6 +33,7 @@ GEM
     haml (4.0.5)
       tilt
     highline (1.6.21)
+    hirb (0.7.2)
     i18n (0.4.0)
     multi_json (1.10.1)
     mysql (2.9.1)
@@ -46,6 +47,8 @@ GEM
       activesupport (= 2.3.8)
       rake (>= 0.8.3)
     rails-footnotes (3.6.7)
+    rails_xss (0.5.1)
+      erubis (>= 2.6.5)
     rake (0.8.7)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
@@ -82,11 +85,13 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   brakeman
   faker
+  hirb
   i18n (= 0.4.0)
   mysql
   nifty-generators
   rails (= 2.3.8)
   rails-footnotes
+  rails_xss
   rake (~> 0.8.7)
   rspec
   will_paginate (~> 2.3.16)

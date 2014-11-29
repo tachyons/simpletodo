@@ -1,0 +1,7 @@
+<%= render :partial => "new"%>
+<% for comment in @comments %>
+  <tr>
+    <td><%=h comment.user.nil? %></td>
+    <td><%=h comment.body %></td>
+  </tr>
+<% end %>

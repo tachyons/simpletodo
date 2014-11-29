@@ -40,8 +40,8 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
-  map.resources :users, :has_many => :tasks ,:collection => {:login=>[:get,:post],:logout=>:get,:forgot_password=>[:get,:post],:change_password=>[:get,:post]}
-  map.resources :tasks, :has_one => :user ,:collection => {:change_status=>[:put,:post],:move_up=>[:put,:post],:move_down=>[:put,:post],:task_list=>[:get],:get_task_delete_confirm=>[:get]}
+  map.resources :users, :has_many => :tasks, :has_many => :comments ,:collection => {:login=>[:get,:post],:logout=>:get,:forgot_password=>[:get,:post],:change_password=>[:get,:post]}
+  map.resources :tasks, :has_one => :user , :has_many => :comments,:collection => {:change_status=>[:put,:post],:change_progress=>[:put,:post],:move_up=>[:put,:post],:move_down=>[:put,:post],:task_list=>[:get],:get_task_delete_confirm=>[:get]}
   map.resource :user_sessions
   map.resources :user_verifications, :only => [:show]
   map.resources :password_resets, :only => [ :new, :create, :edit, :update ]
