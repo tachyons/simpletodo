@@ -26,7 +26,7 @@ class TasksController < ApplicationController
     end
   end
   def task_list
-    if @tab="completed"
+    if @tab=="completed"
       @tasks=@user.tasks.find_all_by_status(1).sort_by(&:"position").reverse
     else
       @tasks=@user.tasks.find_all_by_status(0).sort_by(&:"position").reverse

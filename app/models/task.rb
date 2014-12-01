@@ -1,6 +1,8 @@
 class Task < ActiveRecord::Base
   belongs_to :user
   has_many :comments
+  has_many :task_shares
+  has_many :shared_users,:class_name=>'User', :through => :task_shares
   attr_accessible :name,:position,:status
   def next
     self.class.find(:first,:conditions =>"position > #{self.position} and user_id=#{self.user_id} ",:order => 'position')
