@@ -40,6 +40,21 @@ $(document).ready(function(){
 			}
 		});
 	});
+    $('#user_list').multiselect();
+    $('#share_button').click(function(event) {
+    	alert($('#user_list').val());
+    	var id=parseInt($("#task_id").html());
+    	var user_list=$('#user_list').val();
+    	$.ajax({
+		url: '/tasks/share_task/'+id,
+		type: 'POST',
+		data: { task:{id: id,user_list:user_list} },
+		success: function(result) {
+			//alert("success")
+			$('#task'+id).html(result);
+		}
+	});
+    });
 });
 function delete_task (id){
 	$.ajax({

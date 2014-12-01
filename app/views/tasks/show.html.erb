@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/stylesheets/bootstrap-multiselect.css" type="text/css"/>
+
 <span id="task_id"><%= @task.id %> </span> <br/>
 <%= @task.name %> <br/>
 <%= time_ago_in_words(@task.created_at) %> <br/>
@@ -7,5 +9,14 @@
  
 <h2>Add a comment:</h2>
 <%= render "comments/form" %>
+<h2>Share</h2>
+<select id="user_list" multiple="multiple">
+	<% for user in @users %>
+	<option value="<%=h user.name %>"><%=h user.name %></option>
+	<% end %>
+</select>
+<button id="share_button">Share</button>
+
+
 
 

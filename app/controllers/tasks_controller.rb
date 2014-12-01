@@ -105,6 +105,7 @@ class TasksController < ApplicationController
     end
   end
   def show
+    @users=User.all
     @task = @user.tasks.find(params[:id])
     if request.xhr? #TODO remove this workaround 
       render :partial => @task
@@ -127,6 +128,18 @@ class TasksController < ApplicationController
       comment.body="progress changed to #{params[:task][:progress]} from #{previous_progress}"
       comment.save
     end
+  end
+  def share_task
+     @task = @user.tasks.find(params[:task][:id])
+     @task_id=params[:task][:id];
+     #validate TODO
+      @user_list=params[:task][:user_list]
+      for user in @user_list
+         ts=TaskShare.new
+         ts.user_id=User.find_by_name(user).id
+         ts.task_id=@task_id
+         ts.save!
+      end
   end
   private
     def check_loggedin
