@@ -19,6 +19,9 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
   end
+  def index
+    @users=User.all
+  end
   def change_password
     @user = current_user
     if request.post?

@@ -16,10 +16,10 @@ class TasksController < ApplicationController
   	#@tasks=@user.tasks
     if @user
       if params[:completed]=="true"
-        @tasks=@user.tasks.find_all_by_status(1)
+        @tasks=@user.tasks.find_all_by_status(1).sort_by(&:"position").reverse
         @tab="completed"
       else
-        @tasks=@user.tasks.find_all_by_status(0)
+        @tasks=@user.tasks.find_all_by_status(0).sort_by(&:"position").reverse
         @tab="home"
       end
        @tasks= @tasks.paginate(:page => params[:page], :per_page => 8,:order=> "position DESC")
@@ -27,9 +27,9 @@ class TasksController < ApplicationController
   end
   def task_list
     if @tab="completed"
-      @tasks=@user.tasks.find_all_by_status(1)
+      @tasks=@user.tasks.find_all_by_status(1).sort_by(&:"position").reverse
     else
-      @tasks=@user.tasks.find_all_by_status(0)
+      @tasks=@user.tasks.find_all_by_status(0).sort_by(&:"position").reverse
     end
     @tasks= @tasks.paginate(:page => params[:page], :per_page => 8,:order=> "position DESC")
     render :partial => "task_list"
@@ -71,7 +71,9 @@ class TasksController < ApplicationController
       # p @task
       if @task.save! && @up_task.save!
         @tasks=@user.tasks.sort_by(&:"position").reverse
-        render :partial => @tasks
+        array={:task => @task.id,:other_task=>@up_task.id}
+        render :json => array.to_json
+        #render :partial => @tasks
         #redirect_to "task_list"
       else
         render :text => @task.errors
@@ -92,9 +94,11 @@ class TasksController < ApplicationController
 
       # p @task
       if @task.save! && @next_task.save!
-        @tasks=@user.tasks.sort_by(&:"position").reverse
-        @tasks=@tasks.paginate(:page => params[:page], :per_page => 8)
-        render :partial => @tasks
+        # @tasks=@user.tasks.sort_by(&:"position").reverse
+        # @tasks=@tasks.paginate(:page => params[:page], :per_page => 8)
+        # render :partial => @tasks
+        array={:task => @task.id,:other_task=>@next_task.id}
+        render :json => array.to_json
       else
         render :text => @task.errors
       end

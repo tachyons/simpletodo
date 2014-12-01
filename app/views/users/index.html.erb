@@ -1,0 +1,10 @@
+<h1>Users List</h1>
+<table class="table">
+<% for user in @users %>
+	<tr>
+	    <td><%=h user.name %></td>
+	    <td><%= link_to 'Show', user %></td>
+	    <td>connect</td>
+    </tr>
+<% end %>
+</table>

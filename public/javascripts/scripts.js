@@ -70,7 +70,15 @@ function change_status(id) {
 		type: 'PUT',
 		data: { task:{id: id} },
 		success: function(result) {
-			$('#task'+id).replaceWith(result);
+			// $('#task'+id).replaceWith(result);
+			$('#task'+id).animate({
+		        "opacity" : "0", //property
+			    },1000, //duration of animation (optional)
+			    function(){
+			        $('#task'+id).remove();
+			        update_first_and_last();
+			    } //function to run on complete (optional)
+		 	);
 		}
 	});
 }
@@ -80,9 +88,13 @@ function move_up(position) {
 		type: 'PUT',
 		data: { task:{position: position} },
 		success: function(result) {
-			$("#task"+).insertBefore($(this).prev('.div1'));
-			 $('#task_list').html(result);
-			
+			// $("#task"+).insertBefore($(this).prev('.div1'));
+			// alert( result.task );
+			var task_id="task"+result.task;
+			var other_task_id="task"+result.other_task;
+			// swap_div(task_id,other_task_id);
+			$('#'+task_id).insertBefore($('#'+task_id).prev());
+			update_first_and_last();
 		}
 	});
 }
@@ -92,7 +104,13 @@ function move_down(position) {
 		type: 'PUT',
 		data: { task:{position: position} },
 		success: function(result) {
-			$('#task_list').html(result);
+			// $('#task_list').html(result);
+			// alert( result.task );
+			var task_id="task"+result.task;
+			var other_task_id="task"+result.other_task;
+			$('#'+task_id).insertAfter($('#'+task_id).next());
+			update_first_and_last();
+			// swap_div(task_id,other_task_id);
 		}
 	});
 }
@@ -102,6 +120,7 @@ function cancel_delete (id) {
 		type: 'GET',
 		success: function(result) {
 			$('#task'+id).replaceWith(result);
+
 		}
 	});
 }
@@ -117,6 +136,7 @@ function load_next(page) {
 }
 function update_first_and_last() {
 	update_task($(".task:last"));
+	update_task($(".task:last").prev());
 	update_task($(".task:first"));
 	update_task($(".task:first").next());
 }
@@ -130,4 +150,8 @@ function update_task(task) {
 			$("#"+id_string).replaceWith(result);
 		}
 	});
+}
+function swap_div(id1,id2) {
+	// $('#'+id1).prev().insertBefore($('#'+id2))
+
 }
