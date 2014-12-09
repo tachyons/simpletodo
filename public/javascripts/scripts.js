@@ -8,7 +8,7 @@ $(document).ready(function(){
 			} else {
 				$.post( "/tasks/create", {user:{ name: task, user_id: user_id,status:0 }} ).done(function( data ) {
 					$('#task_list').prepend(data);
-					update_first_and_last();
+					// update_first_and_last();
 				});
 				$('#input_task').val('');
 			}
@@ -37,24 +37,55 @@ $(document).ready(function(){
 			data: { task:{id: id,progress:progress} },
 			success: function(result) {
 				$('#task'+id).replaceWith(result);
+				$("#comment_list").append(result);
 			}
 		});
 	});
     $('#user_list').multiselect();
+
     $('#share_button').click(function(event) {
     	alert($('#user_list').val());
     	var id=parseInt($("#task_id").html());
     	var user_list=$('#user_list').val();
     	$.ajax({
-		url: '/tasks/share_task/'+id,
-		type: 'POST',
-		data: { task:{id: id,user_list:user_list} },
-		success: function(result) {
-			//alert("success")
-			$('#task'+id).html(result);
-		}
-	});
+			url: '/tasks/share_task/'+id,
+			type: 'POST',
+			data: { task:{id: id,user_list:user_list} },
+			success: function(result) {
+				//alert("success")
+				$('#task'+id).html(result);
+			}
+		});
     });
+    $('input').iCheck({
+	    checkboxClass: 'icheckbox_flat-green',
+	    radioClass: 'iradio_flat-green'
+	});
+	var $slider = $("#slider");
+	if ($slider.length > 0) {
+	  $slider.slider({
+	    min: 0,
+	    max: 100,
+	    value: 3,
+	    orientation: "horizontal",
+	    range: "min"
+	  });
+	}
+	$( "#slider" ).slider({
+	  change: function( event, ui ) {
+		var id=parseInt($("#task_id").html());
+		var progress=$(this).slider("value");
+		$.ajax({
+		url: '/tasks/change_progress',
+		type: 'PUT',
+			data: { task:{id: id,progress:progress} },
+			success: function(result) {
+				$('#task'+id).replaceWith(result);
+			}
+		});
+	  }
+	});
+
 });
 function delete_task (id){
 	$.ajax({
@@ -63,7 +94,7 @@ function delete_task (id){
 		success: function(result) {
 			//alert("success")
 			$('#task'+id).remove();
-			update_first_and_last();
+			// update_first_and_last();
 		}
 	});
 }
@@ -91,7 +122,7 @@ function change_status(id) {
 			    },1000, //duration of animation (optional)
 			    function(){
 			        $('#task'+id).remove();
-			        update_first_and_last();
+			        // update_first_and_last();
 			    } //function to run on complete (optional)
 		 	);
 		}
@@ -109,7 +140,7 @@ function move_up(position) {
 			var other_task_id="task"+result.other_task;
 			// swap_div(task_id,other_task_id);
 			$('#'+task_id).insertBefore($('#'+task_id).prev());
-			update_first_and_last();
+			// update_first_and_last();
 		}
 	});
 }
@@ -124,7 +155,7 @@ function move_down(position) {
 			var task_id="task"+result.task;
 			var other_task_id="task"+result.other_task;
 			$('#'+task_id).insertAfter($('#'+task_id).next());
-			update_first_and_last();
+			// update_first_and_last();
 			// swap_div(task_id,other_task_id);
 		}
 	});

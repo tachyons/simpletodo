@@ -1,10 +1,17 @@
 <div>
 	<div id="wrapper" style="width:100%; text-align:center">
 		<div id="top_nav" class="row">
-			<a href="/tasks">
-				<%= image_tag 'Logo.png',:id => "logo_image" ,:class=>"pull-left" %>
-			</a>
-		  	<nav class="pull-right">
+			<div id="tab_nav" class="col-md-7">
+				<% if @tab=="completed" %>
+					<button class="nav_button " ><a href="/tasks">Active</a></button>
+					<button class="nav_button active" ><a href="/tasks?completed=true">Inactive</a></button>
+				<% else %>
+					<button class="nav_button active" ><a href="/tasks">Active</a></button>
+					<button class="nav_button " ><a href="/tasks?completed=true">Inactive</a></button>
+				<% end %>
+				<input type="search" id="search_button" placeholder="Search"> </input>
+			</div>
+		  	<nav class="col-md-5">
 			  	<div class="dropdown" id="profile_menu">
 					<a class="" type="button" id="profile_link" data-toggle="dropdown" aria-expanded="true">
 						<%= @user.name %>
@@ -17,12 +24,6 @@
 				</div>
 				<a href="/logout" id="logout">Logout</a>
 			</nav>
-		</div>
-		<div id="tab_nav" class="row">
-			<ul class="nav nav-tabs">
-			  <li role="presentation" <% unless @tab=="completed" %> class="active" <% end %>><a href="/tasks">Home</a></li>
-			  <li role="presentation" <% if @tab=="completed" %> class="active" <% end %>><a href="/tasks?completed=true">Completed</a></li>
-			</ul>
 		</div>
 	  	<div id="input">
 			<input type="text" name="" id="input_task" class="form-control_back" value="" required="required" pattern="" title="" placeholder="Add your todo Entry hit 'Enter' to post">

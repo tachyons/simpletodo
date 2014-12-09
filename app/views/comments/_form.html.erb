@@ -1,9 +1,5 @@
 <% form_for([@task, @task.comments.build]) do |f| %>
   <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
+    <%= f.text_field :body, :html=>{:class => "nifty_form"} %>
   </p>
 <% end %>

@@ -10,6 +10,7 @@ body {
   height:768px ;
 */  margin-bottom: 60px;
   background-color: #e8e8e8;
+  font-size: 14px;
 }
 .container {
   width: 650px;
@@ -374,4 +375,98 @@ button#cancel_delete {
   /* edit: fixes overlap error in IE7/8, 
      make sure you have an empty gif */
   background-image: url('empty.gif');
+}
+#search_button{
+  height: 30px;
+  width: 100px;
+  border-style: solid;
+  border-color: #CBCBCB;
+  background-color: #E7E7E7;
+  border-radius: 3px;
+}
+.nav_button {
+  margin: 0;
+  margin-left: -7px;
+  width: 75px;
+  height: 30px;
+  background-color: #E7E7E7;
+  border-color: #CBCBCB;
+  border-style: solid;
+  border-radius: 3px;
+}
+button.active {
+  background-color: #F4F4F4;
+}
+#show_task_box {
+  width:592px;
+  min-height:200px;
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #CBCBCB;
+}
+#comment_list{
+  width: 592px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #CBCBCB;
+  margin-right: 0px;
+
+}
+.comment_box {
+  width: 592px;
+  background-color: #F4F4F4;
+  min-height: 100px;
+  padding: 20px;
+}
+.comment_bottom_line {
+  color: #D4D4D4;
+  text-align: center;
+  margin: 0;
+}
+#comment_body {
+  width: 600px;
+  height:50px;
+  /*height:20px;*/
+  margin-top: 20px;
+  box-shadow: 1px 3px 0px 0.00px #d5d5d5;
+  border-style: none;
+  margin:0;
+  padding-left: 10px;
+}
+#new_comment {
+  margin-top: 20px;
+}
+.ui-slider .ui-slider-handle {
+    height: 20px;
+    width: 5px;
+    padding-left: 5px; //add this
+}
+.ui-slider {
+  height:20px;
+  border-radius: 0px;
+}
+.ui-slider-horizontal .ui-slider-handle {
+top:0px;
+margin-left: -5px;
+display:none;
+}
+.task-name {
+  font-size: 16px;
+}
+.green {
+  color: #1abc9c;
+}
+.gray {
+  color: #C0C0C0;
+}
+.ui-slider-horizontal .ui-slider-range {
+  border-radius: 0;
+}
+#task_list > div:first-of-type div .up_button{ 
+  display: none; 
+}
+#task_list > div:last-of-type div .down_button{ 
+  display: none;
 }

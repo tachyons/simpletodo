@@ -1,18 +1,17 @@
 <div class="task row" id ="task<%= task.id %>">
 	<div class="col-md-8">
-		<a href="/tasks/<%= task.id %>"><span id="task_link"></span></a>
-		<span class="task-name"><%= task.name %></span>
+		<a href="/tasks/<%= task.id %>"><span class="task-name"><%= task.name %></span> </a>
 		<br>
 		<span class="time"><%= time_ago_in_words(task.created_at) %></span>
 	</div>
 	<div class="col-md-4 pull-right button_block">
 		<%unless task.status==true %>
-			<% unless task.next_active_task.nil? %>
+			<!-- < % unless task.next_active_task.nil? %> -->
 				<button class="up_button" onclick="move_up(<%= task.position %>)"></button>
-			<% end %>
-			<% unless task.previous_active_task.nil? %>
+			<!-- < % end %> -->
+			<!-- < % unless task.previous_active_task.nil? %> -->
 				<button class="down_button" onclick="move_down(<%= task.position %>)"></button>
-			<% end%>
+			<!-- < % end%> -->
 		<% end %>
 		<button class="delete_button" onclick="confirm_delete_task(<%= task.id %>)"></button>
 		<!-- <button class="delete_button" onclick="delete_task(< %= task.id %>)"></button> -->
