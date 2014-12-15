@@ -1,7 +1,12 @@
 <link rel="stylesheet" href="/stylesheets/bootstrap-multiselect.css" type="text/css"/>
 <div id="top_nav" class="row">
 	<div id="tab_nav" class="col-md-7">
-		<input type="search" id="search_button" placeholder="Search"> </input>
+		<form action="/tasks">
+		<input type="search" id="search_button" name="search" placeholder="Search"> </input>
+		<% if @tab=="completed" %>
+		<input type="hidden" name="completed" value="true">
+		<% end %>
+	</form>
 	</div>
   	<nav class="col-md-5">
 	  	<div class="dropdown" id="profile_menu">
@@ -28,7 +33,9 @@
 				<br/>
 			</div>
 			<div class="col-md-4 pull-right button_block">
-				<button class="delete_button" onclick="confirm_delete_task(<%= @task.id %>)"></button>
+				<% if @task.user.id== @user.id %>
+					<button class="delete_button" onclick="confirm_delete_task_modal(<%= @task.id %>)"></button>
+				<% end %>
 			</div>
 		</div>
 		<div id="task-bottom" class="row">
@@ -38,20 +45,25 @@
 
 				Shared with:
 				<% for user in @shared_users %>
-					<%=h user.name %>
+					<% if user.name!=@user.name %>
+					 <%=h user.name %>
+					<% end %>
 				<% end %>
 				<!-- Button trigger modal -->
 				<% if @task.user.id== @user.id %>
-				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+				<br/>
+				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
 				  Share
 				</button>
 				<% end %>
 			</div>
 			<div class="col-md-4 pull-right button_block">
-				<% if @task.status==true %>
-					<button class="uncheck_button" onclick="change_status(<%= @task.id %>)"></button>
-				<% else %>
-					<button class="check_button" onclick="change_status(<%= @task.id %>)"></button>
+				<% if @task.user.id== @user.id %>
+					<% if @task.status==true %>
+						<button id="status_button" class="uncheck_button" onclick="change_status(<%= @task.id %>)"></button>
+					<% else %>
+						<button id="status_button" class="check_button" onclick="change_status(<%= @task.id %>)"></button>
+					<% end %>
 				<% end %>
 			</div>
 		</div>		
@@ -60,7 +72,7 @@
 	<%= render :partial=> @task.comments %>
 </div>
 <%= render "comments/form" %>
-<span id="task_id"><%= @task.id %> </span> <br/>
+<span id="task_id" style="display:none;"><%= @task.id %> </span> <br/>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -74,7 +86,12 @@
 				<div class="modal-body">
 				<!-- <form action="/tasks/share_task/<%= @task.id %>" method="POST"> -->
 					<% for user in @users %>
-						<input name="check[<%= user.id %>]" type="checkbox" <% if @shared_users.include? user%> checked <%end %> > <option value="<%=h user.name %>"><%=h user.name %></option>
+					<% if user.id!=@task.user_id %>
+						   	<div id="user<%= user.id%>" class="user_div">
+								<input name="check[<%= user.id %>]" type="checkbox" <% if @shared_users.include? user%> checked <%end %> >
+								<option value="<%=h user.name %>"><%=h user.name %></option>
+							</div>
+						<% end %>
 					<% end %>				
 				</div>
 				<div class="modal-footer">

@@ -9,6 +9,7 @@ gem 'authlogic', '2.1.6'
 gem 'rake', '~> 0.8.7',:require => false
 gem 'nifty-generators'
 gem 'rails_xss'
+gem 'mongrel'
 
 # bundler requires these gems in all environments
 # gem 'nokogiri', '1.4.2'

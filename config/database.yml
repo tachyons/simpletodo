@@ -41,7 +41,7 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: todo_production
+  database: todo_development
   pool: 5
   username: root
   password: mysqlroot

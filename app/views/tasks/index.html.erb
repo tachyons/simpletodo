@@ -9,7 +9,12 @@
 					<button class="nav_button active" ><a href="/tasks">Active</a></button>
 					<button class="nav_button " ><a href="/tasks?completed=true">Inactive</a></button>
 				<% end %>
-				<input type="search" id="search_button" placeholder="Search"> </input>
+				<form>
+					<input type="search" id="search_button" name="search" placeholder="Search"> </input>
+					<% if @tab=="completed" %>
+					<input type="hidden" name="completed" value="true">
+					<% end %>
+				</form>
 			</div>
 		  	<nav class="col-md-5">
 			  	<div class="dropdown" id="profile_menu">

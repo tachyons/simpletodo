@@ -34,9 +34,10 @@ $(document).ready(function(){
 		$.ajax({
 		url: '/tasks/change_progress',
 		type: 'PUT',
-			data: { task:{id: id,progress:progress} },
-			success: function(result) {
-				$('#task'+id).replaceWith(result);
+		data: { task:{id: id,progress:progress} },
+		success: function(result) {
+				// $('#task'+id).replaceWith(result);
+				alert("rer");
 				$("#comment_list").append(result);
 			}
 		});
@@ -54,6 +55,7 @@ $(document).ready(function(){
 			success: function(result) {
 				//alert("success")
 				$('#task'+id).html(result);
+
 			}
 		});
     });
@@ -75,14 +77,17 @@ $(document).ready(function(){
 	  change: function( event, ui ) {
 		var id=parseInt($("#task_id").html());
 		var progress=$(this).slider("value");
-		$.ajax({
-		url: '/tasks/change_progress',
-		type: 'PUT',
-			data: { task:{id: id,progress:progress} },
-			success: function(result) {
-				$('#task'+id).replaceWith(result);
-			}
-		});
+		setTimeout(function(){
+			$.ajax({
+			url: '/tasks/change_progress',
+			type: 'PUT',
+				data: { task:{id: id,progress:progress} },
+				success: function(result) {
+					// $('#task'+id).replaceWith(result);
+					$("#comment_list").append(result);
+				}
+			});
+		}, 5000);
 	  }
 	});
 
@@ -110,6 +115,24 @@ function confirm_delete_task (id){
 	$('#task'+id).css('border-color', '#c1392b');
 	$('#task'+id).css('border-style', 'solid');
 }
+function confirm_delete_task_modal (id){
+	bootbox.confirm("Are you sure?", function(result) {
+	  if(result==true) {
+	  	$.ajax({
+			url: '/tasks/'+id,
+			type: 'DELETE',
+			success: function(result) {
+				//alert("success")
+				$('#task'+id).remove();
+				// update_first_and_last();
+			}
+		});
+	  	window.location.replace("/tasks");
+	  	}
+
+	}); 
+	
+}
 function change_status(id) {
 	$.ajax({
 		url: '/tasks/change_status',
@@ -125,7 +148,13 @@ function change_status(id) {
 			        // update_first_and_last();
 			    } //function to run on complete (optional)
 		 	);
-		}
+		 	$("#comment_list").append(result);
+			 if ($('#status_button').attr('class')=="uncheck_button") {
+			 	$('#status_button').attr('class','check_button')
+			 } else {
+			 	$('#status_button').attr('class','uncheck_button')
+			 }
+			}
 	});
 }
 function move_up(position) {
@@ -140,6 +169,7 @@ function move_up(position) {
 			var other_task_id="task"+result.other_task;
 			// swap_div(task_id,other_task_id);
 			$('#'+task_id).insertBefore($('#'+task_id).prev());
+			// $('#'+task_id).insertBefore($('#'+other_task_id));
 			// update_first_and_last();
 		}
 	});

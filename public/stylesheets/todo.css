@@ -289,7 +289,9 @@ button {
 }
 #tab_nav {
   margin: 0px auto;
+  padding-left: 5px;
   margin-bottom: 20px;
+  display: inline-flex;
 }
 a {
   color: inherit; /* blue colors for links too */
@@ -377,6 +379,7 @@ button#cancel_delete {
   background-image: url('empty.gif');
 }
 #search_button{
+  margin-left: 20px;
   height: 30px;
   width: 100px;
   border-style: solid;
@@ -469,4 +472,9 @@ display:none;
 }
 #task_list > div:last-of-type div .down_button{ 
   display: none;
+}
+.user_div {
+  display: inline-flex;
+  width:165px;
+  margin-bottom: 10px;
 }

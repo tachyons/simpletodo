@@ -16,12 +16,16 @@ class TasksController < ApplicationController
   def index
   	#@tasks=@user.tasks
     if @user
+      search_text=params[:search]
+      if search_text.nil?
+        search_text=''
+      end
       if params[:completed]=="true"
         # @tasks=@user.tasks.find_all_by_status(1).sort_by(&:"id").reverse
-        @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 1")
+        @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 1 and tasks.name LIKE '#{search_text}%'")
         @tab="completed"
       else
-        @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 0")
+        @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 0 and tasks.name LIKE '#{search_text}%'")
         # @tab="completed"
         # @tasks=@user.shared_tasks.find_all_by_status(0).sort_by(&:"id").reverse
         @tab="home"
@@ -34,10 +38,14 @@ class TasksController < ApplicationController
 
   end
   def task_list
+    search_text=params[:search]
+    if search_text.nil?
+      search_text=''
+    end
     if @tab=="completed"
-        @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 1")
+        @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 1 and tasks.name LIKE '#{search_text}%'")
     else
-        @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 0")
+        @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 0 and tasks.name LIKE '#{search_text}%'")
     end
     @tasks= @tasks.paginate(:page => params[:page], :per_page => 8,:order=> "position DESC")
     render :partial => "task_list"
@@ -71,9 +79,10 @@ class TasksController < ApplicationController
         comment.body="Status Changed to  <span class='green'>Done</span>"
       end
       comment.save
-      render :partial => 'task'
+      # render :partial => @task
+      render :partial =>comment
     else
-      #format.html { render action: "new" }
+      render :text => nil
     end
   end
   def move_down
@@ -138,6 +147,8 @@ class TasksController < ApplicationController
       comment.body="progress changed to <span class='green'>#{params[:task][:progress]}</span> from <span class='green'>#{previous_progress}</span>"
       comment.save
       render comment
+    else
+      render :text => nil
     end
   end
   def share_task

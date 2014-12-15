@@ -32,15 +32,11 @@ class Task < ActiveRecord::Base
   end
   def find_next_task_by_position_and_user_id(position,user_id)
     user=User.find_by_id(user_id)
-    @task=user.shared_tasks.find(:first,:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 0 AND task_shares.position>#{position}")
-  end
-  def self.find_previous_task_by_position_and_user_id(position,user_id)
-    user=User.find_by_id(user_id)
-    @task=user.shared_tasks.find(:last,:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 0 AND task_shares.position<#{position}")
+    @task=user.shared_tasks.find(:last,:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 0 AND task_shares.position>#{position}")
   end
   def find_previous_task_by_position_and_user_id(position,user_id)
     user=User.find_by_id(user_id)
-    @task=user.shared_tasks.find(:last,:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 0 AND task_shares.position<#{position}")
+    @task=user.shared_tasks.find(:first,:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 0 AND task_shares.position<#{position}")
   end
   def self.search(search)
     if search
