@@ -44,21 +44,21 @@ $(document).ready(function(){
 	});
     $('#user_list').multiselect();
 
-    $('#share_button').click(function(event) {
-    	alert($('#user_list').val());
-    	var id=parseInt($("#task_id").html());
-    	var user_list=$('#user_list').val();
-    	$.ajax({
-			url: '/tasks/share_task/'+id,
-			type: 'POST',
-			data: { task:{id: id,user_list:user_list} },
-			success: function(result) {
-				//alert("success")
-				$('#task'+id).html(result);
+  //   $('#share_button').click(function(event) {
+  //   	// alert($('#user_list').val());
+  //   	var id=parseInt($("#task_id").html());
+  //   	var user_list=$('#user_list').val();
+  //   	$.ajax({
+		// 	url: '/tasks/share_task/'+id,
+		// 	type: 'POST',
+		// 	data: { task:{id: id,user_list:user_list} },
+		// 	success: function(result) {
+		// 		//alert("success")
+		// 		$('#task'+id).html(result);
 
-			}
-		});
-    });
+		// 	}
+		// });
+  //   });
     $('input').iCheck({
 	    checkboxClass: 'icheckbox_flat-green',
 	    radioClass: 'iradio_flat-green'
@@ -73,21 +73,29 @@ $(document).ready(function(){
 	    range: "min"
 	  });
 	}
+	var WaitCount=0;
 	$( "#slider" ).slider({
 	  change: function( event, ui ) {
 		var id=parseInt($("#task_id").html());
 		var progress=$(this).slider("value");
+		WaitCount++;
 		setTimeout(function(){
-			$.ajax({
-			url: '/tasks/change_progress',
-			type: 'PUT',
-				data: { task:{id: id,progress:progress} },
-				success: function(result) {
-					// $('#task'+id).replaceWith(result);
-					$("#comment_list").append(result);
-				}
-			});
+			// alert(WaitCount);
+			WaitCount--;
+			if(WaitCount<=0) {
+				$.ajax({
+				url: '/tasks/change_progress',
+				type: 'PUT',
+					data: { task:{id: id,progress:progress} },
+					success: function(result) {
+						// $('#task'+id).replaceWith(result);
+						$("#comment_list").append(result);
+						IsWaiting=false;
+					}
+				});
+			}
 		}, 5000);
+		
 	  }
 	});
 
@@ -169,6 +177,8 @@ function move_up(position) {
 			var other_task_id="task"+result.other_task;
 			// swap_div(task_id,other_task_id);
 			$('#'+task_id).insertBefore($('#'+task_id).prev());
+			update_task($('#'+task_id));
+			update_task($('#'+task_id).prev());
 			// $('#'+task_id).insertBefore($('#'+other_task_id));
 			// update_first_and_last();
 		}
@@ -185,6 +195,8 @@ function move_down(position) {
 			var task_id="task"+result.task;
 			var other_task_id="task"+result.other_task;
 			$('#'+task_id).insertAfter($('#'+task_id).next());
+			update_task($('#'+task_id));
+			update_task($('#'+task_id).next());
 			// update_first_and_last();
 			// swap_div(task_id,other_task_id);
 		}

@@ -21,6 +21,12 @@
 			<% else %>
 				<button class="check_button" onclick="change_status(<%= task.id %>)"></button>
 			<% end %>
-		<% end %>
+		<% else %>
+		<% if task.status==true %>
+				<button class="uncheck_button" ></button>
+			<% else %>
+				<button class="check_button"></button>
+			<% end %>
+		<% end %> 
 	</div>
 </div>

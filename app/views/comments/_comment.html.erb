@@ -1,8 +1,10 @@
 <div class="comment_box">
-	<%= comment.body.html_safe %> <br/> <br/>
-	<%= comment.user.name %> 
-	 <span class="gray">on
-	<%= comment.created_at %>
-	</span> 
+	<%= comment.body.html_safe %> <br/>
+	<div class="comment_bottom">
+		<%= comment.user.name %>
+		<span class="gray">on
+		<%= comment.created_at %>
+		</span> 
+	</div>
 	<hr class="comment_bottom_line" />
 </div>

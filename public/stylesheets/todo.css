@@ -285,11 +285,11 @@ button {
 #top_nav {
   width: 600px;
   margin: 0px auto;
-  /*margin-bottom: 50px;*/
+  margin-bottom: 20px;
 }
 #tab_nav {
   margin: 0px auto;
-  padding-left: 5px;
+  padding-left: 0px;
   margin-bottom: 20px;
   display: inline-flex;
 }
@@ -379,13 +379,14 @@ button#cancel_delete {
   background-image: url('empty.gif');
 }
 #search_button{
-  margin-left: 20px;
+  /*margin-left: 20px;*/
   height: 30px;
-  width: 100px;
+  width: 150px;
   border-style: solid;
   border-color: #CBCBCB;
   background-color: #E7E7E7;
   border-radius: 3px;
+  border-width: 1px;
 }
 .nav_button {
   margin: 0;
@@ -418,15 +419,24 @@ button.active {
 
 }
 .comment_box {
-  width: 592px;
+  width: 590px;
   background-color: #F4F4F4;
   min-height: 100px;
   padding: 20px;
+  font-size: 16px;
+  padding-top: 20px;
+  padding-bottom: 0px;
 }
 .comment_bottom_line {
+  border-color: #D4D4D4;
+  background-color:#D4D4D4;
   color: #D4D4D4;
   text-align: center;
   margin: 0;
+  margin-top: 20px;
+}
+#comment_list > div:last-of-type  .comment_bottom_line {
+  visibility: hidden;
 }
 #comment_body {
   width: 600px;
@@ -456,7 +466,7 @@ margin-left: -5px;
 display:none;
 }
 .task-name {
-  font-size: 16px;
+  font-size: 20px;
 }
 .green {
   color: #1abc9c;
@@ -477,4 +487,50 @@ display:none;
   display: inline-flex;
   width:165px;
   margin-bottom: 10px;
+}
+#button_group {
+  text-align: left;
+  padding-left: 15px;
+padding-bottom: 10px;
+}
+#top_nav nav {
+  padding-right: 0px;
+}
+#back_menu {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+#share_button {
+  padding: 5px;
+  height: 30px;
+  width: 90px;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #989898;
+  color: #33495E;
+  margin-left: 0px;
+  margin-top: 5px;
+}
+#save_share_button {
+  padding: 5px;
+  height: 30px;
+  width: 90px;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #989898;
+  color: #33495E;
+}
+.comment_bottom {
+  font-size: 12px;
+  padding-top: 10px;
+}
+#cancel_share_button {
+  border-width: 0px;
+  background-color: white;
+  color: #33495E;
+  text-decoration: underline;
 }

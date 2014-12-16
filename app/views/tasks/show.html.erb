@@ -22,12 +22,11 @@
 		<a href="/logout" id="logout">Logout</a>
 	</nav>
 </div>
-
-<a href="/tasks">< GoBack to home</a>
+<div id="back_menu"><a href="/tasks">< GoBack to home</a></div>
 <div id="show_task_box" class="">
 		<div id="task-top" class="row">
 			<div class="col-md-8">
-				<span class="task-name"><%= @task.name %></span><%= @task.position %>
+				<span class="task-name"><%= @task.name %></span>
 				<br>
 				<span class="time"><%= time_ago_in_words(@task.created_at) %></span>
 				<br/>
@@ -52,7 +51,7 @@
 				<!-- Button trigger modal -->
 				<% if @task.user.id== @user.id %>
 				<br/>
-				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+				<button type="button" id="share_button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
 				  Share
 				</button>
 				<% end %>
@@ -64,6 +63,12 @@
 					<% else %>
 						<button id="status_button" class="check_button" onclick="change_status(<%= @task.id %>)"></button>
 					<% end %>
+				<% else %>
+					<% if @task.status==true %>
+						<button id="status_button" class="uncheck_button" ></button>
+					<% else %>
+						<button id="status_button" class="check_button"></button>
+					<% end %>
 				<% end %>
 			</div>
 		</div>		
@@ -74,6 +79,7 @@
 <%= render "comments/form" %>
 <span id="task_id" style="display:none;"><%= @task.id %> </span> <br/>
 
+
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   	<div class="modal-dialog">
@@ -81,7 +87,7 @@
 	    	<%= form_tag "/tasks/share_task/"+@task.id.to_s,:method=>:put %>
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					<h4 class="modal-title" id="myModalLabel">Add people to this task</h4>
+					<h5 class="modal-title" id="myModalLabel">Add people to this task</h4>
 				</div>
 				<div class="modal-body">
 				<!-- <form action="/tasks/share_task/<%= @task.id %>" method="POST"> -->
@@ -95,8 +101,9 @@
 					<% end %>				
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-primary">Save changes</button>
+					<button type="submit" class="btn" id="save_share_button">Save</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="cancel_share_button">Cancel</button>
+
 				</div>
 			</form>
 		</div>

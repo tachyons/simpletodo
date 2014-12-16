@@ -2,13 +2,6 @@
 	<div id="wrapper" style="width:100%; text-align:center">
 		<div id="top_nav" class="row">
 			<div id="tab_nav" class="col-md-7">
-				<% if @tab=="completed" %>
-					<button class="nav_button " ><a href="/tasks">Active</a></button>
-					<button class="nav_button active" ><a href="/tasks?completed=true">Inactive</a></button>
-				<% else %>
-					<button class="nav_button active" ><a href="/tasks">Active</a></button>
-					<button class="nav_button " ><a href="/tasks?completed=true">Inactive</a></button>
-				<% end %>
 				<form>
 					<input type="search" id="search_button" name="search" placeholder="Search"> </input>
 					<% if @tab=="completed" %>
@@ -33,6 +26,15 @@
 	  	<div id="input">
 			<input type="text" name="" id="input_task" class="form-control_back" value="" required="required" pattern="" title="" placeholder="Add your todo Entry hit 'Enter' to post">
 			<span id="input_img"></span>
+		</div>
+		<div id="button_group">
+			<% if @tab=="completed" %>
+						<button class="nav_button " ><a href="/tasks">Active</a></button>
+						<button class="nav_button active" ><a href="/tasks?completed=true">Inactive</a></button>
+					<% else %>
+						<button class="nav_button active" ><a href="/tasks">Active</a></button>
+						<button class="nav_button " ><a href="/tasks?completed=true">Inactive</a></button>
+			<% end %>
 		</div>
 	</div>
 	<div id="task_list">
