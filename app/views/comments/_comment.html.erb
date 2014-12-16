@@ -3,7 +3,7 @@
 	<div class="comment_bottom">
 		<%= comment.user.name %>
 		<span class="gray">on
-		<%= comment.created_at %>
+		<%=(comment.created_at).strftime("%I.%P,  %d %b %Y")%>
 		</span> 
 	</div>
 	<hr class="comment_bottom_line" />
