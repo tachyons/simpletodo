@@ -11,6 +11,8 @@ body {
 */  margin-bottom: 60px;
   background-color: #e8e8e8;
   font-size: 14px;
+  font-family: "Open Sans";
+  font-weight: normal;
 }
 .container {
   width: 650px;
@@ -380,6 +382,7 @@ button#cancel_delete {
 }
 #search_button{
   /*margin-left: 20px;*/
+  padding-left: 5px;
   height: 30px;
   width: 150px;
   border-style: solid;
@@ -397,6 +400,7 @@ button#cancel_delete {
   border-color: #CBCBCB;
   border-style: solid;
   border-radius: 3px;
+  border-width: 1px;
 }
 button.active {
   background-color: #F4F4F4;
@@ -518,6 +522,7 @@ padding-bottom: 10px;
   color: #33495E;
   margin-left: 0px;
   margin-top: 5px;
+  font-weight: bold;
 }
 #save_share_button {
   padding: 5px;
@@ -529,6 +534,8 @@ padding-bottom: 10px;
   border-style: solid;
   border-color: #989898;
   color: #33495E;
+  font-weight: bold;
+
 }
 .comment_bottom {
   font-size: 12px;
@@ -542,4 +549,8 @@ padding-bottom: 10px;
 }
 div#slider {
 width: 502px;
+}
+.user_option_list {
+  margin-left: 10px;
+margin-top: -3px;
 }

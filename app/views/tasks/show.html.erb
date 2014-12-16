@@ -22,7 +22,7 @@
 		<a href="/logout" id="logout">Logout</a>
 	</nav>
 </div>
-<div id="back_menu"><a href="/tasks">< GoBack to home</a></div>
+<div id="back_menu"><a href="/tasks">< Go Back to home</a></div>
 <div id="show_task_box" class="">
 		<div id="task-top" class="row">
 			<div class="col-md-8">
@@ -87,7 +87,7 @@
 	    	<%= form_tag "/tasks/share_task/"+@task.id.to_s,:method=>:put %>
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					<h5 class="modal-title" id="myModalLabel">Add people to this task</h4>
+					<h6 class="modal-title" id="myModalLabel">Add people to this task</h6>
 				</div>
 				<div class="modal-body">
 				<!-- <form action="/tasks/share_task/<%= @task.id %>" method="POST"> -->
@@ -95,7 +95,7 @@
 					<% if user.id!=@task.user_id %>
 						   	<div id="user<%= user.id%>" class="user_div">
 								<input name="check[<%= user.id %>]" type="checkbox" <% if @shared_users.include? user%> checked <%end %> >
-								<option value="<%=h user.name %>"><%=h user.name %></option>
+								<option class="user_option_list" value="<%=h user.name %>"><%=h user.name %></option>
 							</div>
 						<% end %>
 					<% end %>				

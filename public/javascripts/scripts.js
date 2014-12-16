@@ -159,8 +159,10 @@ function change_status(id) {
 		 	$("#comment_list").append(result);
 			 if ($('#status_button').attr('class')=="uncheck_button") {
 			 	$('#status_button').attr('class','check_button')
+			 	$( "#slider" ).slider( "enable" );
 			 } else {
 			 	$('#status_button').attr('class','uncheck_button')
+			 	$( "#slider" ).slider( "disable" );
 			 }
 			}
 	});

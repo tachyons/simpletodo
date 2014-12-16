@@ -1444,3 +1444,903 @@ ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" 
   sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
 
 Rendering /home/user/training/rails/todo/public/404.html (404 Not Found)
+
+
+Processing TasksController#index (for 127.0.0.1 at 2014-12-16 15:36:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/index
+Completed in 106ms (View: 5, DB: 43) | 200 OK [http://localhost/tasks]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:36:04) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:36:04) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#create (for 127.0.0.1 at 2014-12-16 15:37:13) [POST]
+  Parameters: {"action"=>"create", "user"=>{"user_id"=>"", "status"=>"0", "name"=>"sdsd"}, "controller"=>"tasks"}
+Completed in 104ms (View: 1, DB: 94) | 200 OK [http://localhost/tasks/create]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:37:15) [GET]
+  Parameters: {"action"=>"show", "id"=>"244", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 50ms (View: 6, DB: 39) | 200 OK [http://localhost/tasks/244]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:37:15) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:37:15) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:37:20) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"244", "progress"=>"0"}}
+Completed in 45ms (View: 0, DB: 39) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2014-12-16 15:37:21) [POST]
+  Parameters: {"action"=>"create", "comment"=>{"body"=>"asasa"}, "controller"=>"comments", "task_id"=>"244", "authenticity_token"=>"LeW3l8/aanFAvHJjbq8gOxjl5W+PAzkmV9JMul/Gw7A="}
+Redirected to http://localhost:3000/tasks/244
+Completed in 114ms (DB: 109) | 302 Found [http://localhost/tasks/244/comments]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:37:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"244", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 37ms (View: 5, DB: 28) | 200 OK [http://localhost/tasks/244]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:37:21) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:37:21) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2014-12-16 15:37:25) [POST]
+  Parameters: {"action"=>"create", "comment"=>{"body"=>"sdsds"}, "controller"=>"comments", "task_id"=>"244", "authenticity_token"=>"LeW3l8/aanFAvHJjbq8gOxjl5W+PAzkmV9JMul/Gw7A="}
+Redirected to http://localhost:3000/tasks/244
+Completed in 246ms (DB: 241) | 302 Found [http://localhost/tasks/244/comments]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:37:25) [GET]
+  Parameters: {"action"=>"show", "id"=>"244", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 40ms (View: 6, DB: 30) | 200 OK [http://localhost/tasks/244]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:37:25) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:37:25) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2014-12-16 15:37:29) [POST]
+  Parameters: {"action"=>"create", "comment"=>{"body"=>"fhfgf"}, "controller"=>"comments", "task_id"=>"244", "authenticity_token"=>"LeW3l8/aanFAvHJjbq8gOxjl5W+PAzkmV9JMul/Gw7A="}
+Redirected to http://localhost:3000/tasks/244
+Completed in 60ms (DB: 56) | 302 Found [http://localhost/tasks/244/comments]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:37:29) [GET]
+  Parameters: {"action"=>"show", "id"=>"244", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 87ms (View: 6, DB: 25) | 200 OK [http://localhost/tasks/244]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:37:29) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:37:29) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:37:34) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"244", "progress"=>"0"}}
+Completed in 44ms (View: 0, DB: 40) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2014-12-16 15:37:35) [POST]
+  Parameters: {"action"=>"create", "comment"=>{"body"=>"gfgdfdff"}, "controller"=>"comments", "task_id"=>"244", "authenticity_token"=>"LeW3l8/aanFAvHJjbq8gOxjl5W+PAzkmV9JMul/Gw7A="}
+Redirected to http://localhost:3000/tasks/244
+Completed in 73ms (DB: 69) | 302 Found [http://localhost/tasks/244/comments]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:37:35) [GET]
+  Parameters: {"action"=>"show", "id"=>"244", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 36ms (View: 5, DB: 27) | 200 OK [http://localhost/tasks/244]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:37:35) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:37:35) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:37:40) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"244", "progress"=>"0"}}
+Completed in 42ms (View: 0, DB: 37) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:39:09) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:39:49) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"244", "progress"=>"20"}}
+Completed in 124ms (View: 1, DB: 119) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:40:00) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"244", "progress"=>"47"}}
+Completed in 98ms (View: 1, DB: 87) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing TasksController#index (for 127.0.0.1 at 2014-12-16 15:42:18) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/index
+Completed in 66ms (View: 3, DB: 60) | 200 OK [http://localhost/tasks]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:42:18) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:42:18) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:42:20) [GET]
+  Parameters: {"action"=>"show", "id"=>"243", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 74ms (View: 4, DB: 66) | 200 OK [http://localhost/tasks/243]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:42:20) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:42:20) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:42:24) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:42:25) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"243", "progress"=>"51"}}
+Completed in 24ms (View: 0, DB: 21) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:43:48) [GET]
+  Parameters: {"action"=>"show", "id"=>"243", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 78ms (View: 4, DB: 70) | 200 OK [http://localhost/tasks/243]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:43:48) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:43:48) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:43:48) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#index (for 127.0.0.1 at 2014-12-16 15:43:49) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/index
+Completed in 38ms (View: 8, DB: 25) | 200 OK [http://localhost/tasks]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:43:50) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:43:50) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:43:50) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#index (for 127.0.0.1 at 2014-12-16 15:43:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tasks", "completed"=>"true"}
+Rendering template within layouts/application
+Rendering tasks/index
+Completed in 64ms (View: 3, DB: 57) | 200 OK [http://localhost/tasks?completed=true]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:43:52) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:43:52) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:43:52) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#index (for 127.0.0.1 at 2014-12-16 15:51:27) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tasks", "completed"=>"true"}
+Rendering template within layouts/application
+Rendering tasks/index
+Completed in 250ms (View: 2, DB: 242) | 200 OK [http://localhost/tasks?completed=true]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:51:27) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:51:27) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:51:27) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#index (for 127.0.0.1 at 2014-12-16 15:51:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/index
+Completed in 46ms (View: 3, DB: 39) | 200 OK [http://localhost/tasks]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:51:34) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:51:34) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:51:34) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:51:36) [GET]
+  Parameters: {"action"=>"show", "id"=>"244", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 103ms (View: 55, DB: 44) | 200 OK [http://localhost/tasks/244]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:51:36) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:51:36) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:51:36) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#change_status (for 127.0.0.1 at 2014-12-16 15:51:39) [PUT]
+  Parameters: {"action"=>"change_status", "controller"=>"tasks", "task"=>{"id"=>"244"}}
+Completed in 325ms (View: 1, DB: 319) | 200 OK [http://localhost/tasks/change_status]
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:51:41) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"244", "progress"=>"47"}}
+Completed in 32ms (View: 0, DB: 29) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:51:43) [GET]
+  Parameters: {"action"=>"show", "id"=>"244", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 71ms (View: 6, DB: 60) | 200 OK [http://localhost/tasks/244]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:51:43) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:51:43) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:51:43) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:51:48) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"244", "progress"=>"47"}}
+Completed in 50ms (View: 0, DB: 47) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:53:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"244", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 170ms (View: 8, DB: 154) | 200 OK [http://localhost/tasks/244]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:53:21) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:53:21) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:53:21) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#change_status (for 127.0.0.1 at 2014-12-16 15:53:23) [PUT]
+  Parameters: {"action"=>"change_status", "controller"=>"tasks", "task"=>{"id"=>"244"}}
+Completed in 138ms (View: 40, DB: 94) | 200 OK [http://localhost/tasks/change_status]
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:53:26) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"244", "progress"=>"47"}}
+Completed in 49ms (View: 0, DB: 45) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing TasksController#change_status (for 127.0.0.1 at 2014-12-16 15:53:29) [PUT]
+  Parameters: {"action"=>"change_status", "controller"=>"tasks", "task"=>{"id"=>"244"}}
+Completed in 108ms (View: 1, DB: 101) | 200 OK [http://localhost/tasks/change_status]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:53:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"244", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 80ms (View: 8, DB: 65) | 200 OK [http://localhost/tasks/244]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:53:49) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:53:49) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:53:49) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#change_status (for 127.0.0.1 at 2014-12-16 15:53:51) [PUT]
+  Parameters: {"action"=>"change_status", "controller"=>"tasks", "task"=>{"id"=>"244"}}
+Completed in 188ms (View: 1, DB: 181) | 200 OK [http://localhost/tasks/change_status]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:53:55) [GET]
+  Parameters: {"action"=>"show", "id"=>"244", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 80ms (View: 7, DB: 67) | 200 OK [http://localhost/tasks/244]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:53:55) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:53:55) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:53:55) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#change_status (for 127.0.0.1 at 2014-12-16 15:53:56) [PUT]
+  Parameters: {"action"=>"change_status", "controller"=>"tasks", "task"=>{"id"=>"244"}}
+Completed in 151ms (View: 1, DB: 145) | 200 OK [http://localhost/tasks/change_status]
+
+
+Processing TasksController#change_status (for 127.0.0.1 at 2014-12-16 15:53:59) [PUT]
+  Parameters: {"action"=>"change_status", "controller"=>"tasks", "task"=>{"id"=>"244"}}
+Completed in 179ms (View: 2, DB: 170) | 200 OK [http://localhost/tasks/change_status]
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:54:00) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"244", "progress"=>"47"}}
+Completed in 92ms (View: 0, DB: 41) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing TasksController#change_status (for 127.0.0.1 at 2014-12-16 15:54:02) [PUT]
+  Parameters: {"action"=>"change_status", "controller"=>"tasks", "task"=>{"id"=>"244"}}
+Completed in 217ms (View: 1, DB: 212) | 200 OK [http://localhost/tasks/change_status]
+
+
+Processing TasksController#change_status (for 127.0.0.1 at 2014-12-16 15:54:05) [PUT]
+  Parameters: {"action"=>"change_status", "controller"=>"tasks", "task"=>{"id"=>"244"}}
+Completed in 201ms (View: 1, DB: 192) | 200 OK [http://localhost/tasks/change_status]
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:54:06) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"244", "progress"=>"56"}}
+Completed in 82ms (View: 1, DB: 74) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:54:13) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"244", "progress"=>"41"}}
+Completed in 68ms (View: 0, DB: 64) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:54:16) [GET]
+  Parameters: {"action"=>"show", "id"=>"244", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 180ms (View: 17, DB: 157) | 200 OK [http://localhost/tasks/244]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:54:16) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:54:16) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:54:16) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:54:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"244", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 55ms (View: 8, DB: 42) | 200 OK [http://localhost/tasks/244]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:54:21) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:54:21) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:54:21) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:54:26) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"244", "progress"=>"41"}}
+Completed in 27ms (View: 0, DB: 24) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:55:02) [GET]
+  Parameters: {"action"=>"show", "id"=>"244", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 235ms (View: 8, DB: 167) | 200 OK [http://localhost/tasks/244]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:55:03) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:55:03) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#index (for 127.0.0.1 at 2014-12-16 15:55:05) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/index
+Completed in 181ms (View: 3, DB: 175) | 200 OK [http://localhost/tasks]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:55:05) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:55:05) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:55:07) [GET]
+  Parameters: {"action"=>"show", "id"=>"243", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 40ms (View: 5, DB: 31) | 200 OK [http://localhost/tasks/243]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:55:07) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.woff" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:55:07) [GET]
+
+ActionController::RoutingError (No route matches "/fonts/lato/lato-regular.ttf" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:55:12) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"243", "progress"=>"51"}}
+Completed in 47ms (View: 0, DB: 43) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:55:45) [GET]
+  Parameters: {"action"=>"show", "id"=>"243", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 206ms (View: 4, DB: 197) | 200 OK [http://localhost/tasks/243]
+
+
+Processing TasksController#index (for 127.0.0.1 at 2014-12-16 15:55:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/index
+Completed in 208ms (View: 3, DB: 202) | 200 OK [http://localhost/tasks]
+
+
+Processing TasksController#task_list (for 127.0.0.1 at 2014-12-16 15:55:52) [GET]
+  Parameters: {"action"=>"task_list", "controller"=>"tasks", "page"=>"2"}
+Completed in 48ms (View: 2, DB: 43) | 200 OK [http://localhost/tasks/task_list?page=2]
+
+
+Processing TasksController#task_list (for 127.0.0.1 at 2014-12-16 15:55:55) [GET]
+  Parameters: {"action"=>"task_list", "controller"=>"tasks", "page"=>"3"}
+Completed in 40ms (View: 2, DB: 32) | 200 OK [http://localhost/tasks/task_list?page=3]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:55:56) [GET]
+  Parameters: {"action"=>"show", "id"=>"227", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 92ms (View: 4, DB: 30) | 200 OK [http://localhost/tasks/227]
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:56:04) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"227", "progress"=>"14"}}
+Completed in 127ms (View: 3, DB: 118) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing TasksController#index (for 127.0.0.1 at 2014-12-16 15:56:50) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/index
+Completed in 159ms (View: 3, DB: 151) | 200 OK [http://localhost/tasks]
+
+
+Processing TasksController#task_list (for 127.0.0.1 at 2014-12-16 15:56:52) [GET]
+  Parameters: {"action"=>"task_list", "controller"=>"tasks", "page"=>"2"}
+Completed in 42ms (View: 2, DB: 36) | 200 OK [http://localhost/tasks/task_list?page=2]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:56:53) [GET]
+  Parameters: {"action"=>"show", "id"=>"236", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 74ms (View: 4, DB: 65) | 200 OK [http://localhost/tasks/236]
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:56:58) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"236", "progress"=>"0"}}
+Completed in 49ms (View: 0, DB: 44) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 15:57:36) [GET]
+  Parameters: {"action"=>"show", "id"=>"236", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 212ms (View: 5, DB: 200) | 200 OK [http://localhost/tasks/236]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 15:57:40) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 15:57:42) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"236", "progress"=>"0"}}
+Completed in 31ms (View: 1, DB: 25) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 16:00:19) [GET]
+  Parameters: {"action"=>"show", "id"=>"236", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 65ms (View: 4, DB: 56) | 200 OK [http://localhost/tasks/236]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 16:00:20) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 16:00:25) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"236", "progress"=>"0"}}
+Completed in 153ms (View: 0, DB: 147) | 200 OK [http://localhost/tasks/change_progress]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2014-12-16 16:00:44) [GET]
+  Parameters: {"action"=>"show", "id"=>"236", "controller"=>"tasks"}
+Rendering template within layouts/application
+Rendering tasks/show
+Completed in 217ms (View: 68, DB: 144) | 200 OK [http://localhost/tasks/236]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2014-12-16 16:00:44) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.min.map" with {:method=>:get}):
+  sass (3.4.9) rails/./lib/sass/plugin/rack.rb:54:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#change_progress (for 127.0.0.1 at 2014-12-16 16:00:49) [PUT]
+  Parameters: {"action"=>"change_progress", "controller"=>"tasks", "task"=>{"id"=>"236", "progress"=>"0"}}
+Completed in 40ms (View: 0, DB: 37) | 200 OK [http://localhost/tasks/change_progress]

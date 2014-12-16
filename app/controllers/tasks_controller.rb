@@ -127,6 +127,7 @@ class TasksController < ApplicationController
     @task=@accessible_tasks.detect{|x| x.task_id==params[:id]}
     # @task = @user.sharedtasks.find(params[:id])
     @shared_users=Task.find_by_id(params[:id]).shared_users
+    @task_owner=User.find_by_id(@task.user_id)
     if request.xhr? #TODO remove this workaround 
       render :partial => @task
     end
