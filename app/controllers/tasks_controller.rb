@@ -17,6 +17,7 @@ class TasksController < ApplicationController
   	#@tasks=@user.tasks
     if @user
       search_text=params[:search]
+      @search_text=params[:search]
       if search_text.nil?
         search_text=''
       end
