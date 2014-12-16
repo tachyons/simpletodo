@@ -468,6 +468,9 @@ display:none;
 .task-name {
   font-size: 20px;
 }
+.task-name:hover {
+  text-decoration: underline;
+}
 .green {
   color: #1abc9c;
 }
@@ -481,6 +484,9 @@ display:none;
   display: none; 
 }
 #task_list > div:last-of-type div .down_button{ 
+  display: none;
+}
+.down_button:last-of-type{ 
   display: none;
 }
 .user_div {
