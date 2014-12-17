@@ -9,11 +9,11 @@
 					<% end %>
 				</form>
 			</div>
-		  	<nav class="col-md-5">
+		  	<nav class="col-md-5" id="index_page_nav">
 			  	<div class="dropdown" id="profile_menu">
 					<a class="" type="button" id="profile_link" data-toggle="dropdown" aria-expanded="true">
 						<%= @user.name %>
-						<span class="caret"></span>
+						<!-- <span class="caret"></span> -->
 					</a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="menu_list">
 						<li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#" class="inactive "><%= @user.email %></a></li>

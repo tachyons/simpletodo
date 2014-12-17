@@ -2,9 +2,11 @@
 	<div class="col-md-8">
 		<a href="/tasks/<%= task.id %>"><span class="task-name"><%= task.name %></span> </a>
 		<br/>
-		by <%=  task.user.name %>
-		<br>
-		<span class="time"><%=(task.created_at).strftime("%I.%P,  %d %b %Y")%></span>
+		<div class="task_entry_bottom">
+			by <%=  task.user.name %>
+			<br>
+			<span class="time"><%=(task.created_at).strftime("%I.%P,  %d %b %Y")%></span>
+		</div>
 	</div>
 	<div class="col-md-4 pull-right button_block">
 		<%unless task.status==true %>

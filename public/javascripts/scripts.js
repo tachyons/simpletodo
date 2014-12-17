@@ -14,6 +14,22 @@ $(document).ready(function(){
 			}
 		}
 	});
+	$('#comment_body').keypress(function (e) {
+		var key = e.which;
+		if(key === 13) {
+			var comment = $('#comment_body').val();
+			if (comment.length <=0) {
+				// alert("Nothing to do ?? , Why you here ?? ;-)")
+			} else {
+				var id=parseInt($("#task_id").html());
+				$.post( "/tasks/"+id+"/comments", {comment:{ body: comment, user_id: user_id }} ).done(function( data ) {
+					$("#comment_list").append(data);
+					// update_first_and_last();
+				});
+				$('#comment_body').val('');
+			}
+		}
+	});
 	$('#task_list').infinitescroll({
 
 		navSelector: '#page-nav',	// selector for the paged navigation
@@ -78,6 +94,7 @@ $(document).ready(function(){
 	  change: function( event, ui ) {
 		var id=parseInt($("#task_id").html());
 		var progress=$(this).slider("value");
+		$("#slider_count").html(progress+"%");
 		WaitCount++;
 		setTimeout(function(){
 			// alert(WaitCount);

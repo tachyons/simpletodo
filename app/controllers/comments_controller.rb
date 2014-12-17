@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
     @comment = @task.comments.build(params[:comment])
     @comment.user_id=current_user.id;
     if @comment.save
-      redirect_to task_url(@task)
+      render :partial => @comment
     else
       render :action => "new"
     end

@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/stylesheets/bootstrap-multiselect.css" type="text/css"/>
 <div id="top_nav" class="row">
-	<div id="tab_nav" class="col-md-7">
+	<div id="tab_nav" class="col-md-8">
 		<form action="/tasks">
 		<input type="search" id="search_button" name="search" placeholder="Search"> </input>
 		<% if @tab=="completed" %>
@@ -8,11 +8,11 @@
 		<% end %>
 	</form>
 	</div>
-  	<nav class="col-md-5">
+  	<nav class="col-md-4" id="show_page_nav">
 	  	<div class="dropdown" id="profile_menu">
 			<a class="" type="button" id="profile_link" data-toggle="dropdown" aria-expanded="true">
 				<%= @user.name %>
-				<span class="caret"></span>
+				<!-- <span class="caret"></span> -->
 			</a>
 			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="menu_list">
 				<li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#" class="inactive "><%= @user.email %></a></li>
@@ -40,8 +40,10 @@
 		<div id="task-bottom" class="row">
 			<div class="col-md-8">
 				Task Completion
-				<div id="slider"></div>
-
+				<div id="slider_div">
+					<div id="slider"></div>
+					<span id="slider_count">38%</span>
+				</div>
 				Shared with:
 				<% for user in @shared_users %>
 					<% if user.name!=@user.name %>
@@ -52,7 +54,7 @@
 				<% if @task.user.id== @user.id %>
 				<br/>
 				<button type="button" id="share_button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-				  Share
+				  Share this
 				</button>
 				<% end %>
 			</div>
@@ -76,7 +78,9 @@
 <div id="comment_list">
 	<%= render :partial=> @task.comments %>
 </div>
-<%= render "comments/form" %>
+<!-- < %= render :partial =>"comments/form" %> -->
+<input id="comment_body" name="comment[body]" size="30" type="text">
+
 <span id="task_id" style="display:none;"><%= @task.id %> </span> <br/>
 
 
@@ -111,6 +115,7 @@
 </div>
 <script type="text/javascript">
 $(document).ready(function(){
+	var task_id= <%= @task.id %>;
 	$( "#slider" ).slider( "value", <%= @task.progress %> );
 	<% if @task.status==true %>
 	$( "#slider" ).slider( "option", "disabled", true );
