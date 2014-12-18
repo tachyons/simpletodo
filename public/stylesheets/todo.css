@@ -488,6 +488,9 @@ display:none;
 .ui-slider-horizontal .ui-slider-range {
   border-radius: 0;
 }
+#task_list {
+  min-height: 500px;
+}
 #task_list > div:first-of-type div .up_button{ 
   display: none; 
 }
@@ -581,4 +584,7 @@ margin-top: -3px;
 }
 #slider_div {
   position: relative;
+}
+.modal-body {
+padding: 30px;
 }

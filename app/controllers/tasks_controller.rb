@@ -164,15 +164,17 @@ class TasksController < ApplicationController
       # render :text =>@user_list.keys
       # TaskShare.destroy_all(:task_id => @task_id)
       TaskShare.destroy_all(["task_id = '#{@task_id}' and user_id<>'#{@user.id}'"])
-      for user in @user_list.keys
-        unless user == @user.id.to_s
-          ts=TaskShare.new
-          ts.user_id=user
-          ts.task_id=@task_id
-          ts.position=TaskShare.last.id+1
-          unless ts.save!
-          flash[:error]="error"
-          redirect to task_path
+      if @user_list
+        for user in @user_list.keys
+          unless user == @user.id.to_s
+            ts=TaskShare.new
+            ts.user_id=user
+            ts.task_id=@task_id
+            ts.position=TaskShare.last.id+1
+            unless ts.save!
+            flash[:error]="error"
+            redirect to task_path
+            end
           end
         end
       end

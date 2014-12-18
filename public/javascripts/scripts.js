@@ -198,6 +198,7 @@ function move_up(position) {
 			$('#'+task_id).insertBefore($('#'+task_id).prev());
 			update_task($('#'+task_id));
 			update_task($('#'+task_id).prev());
+			update_task($('#'+task_id).next());
 			// $('#'+task_id).insertBefore($('#'+other_task_id));
 			// update_first_and_last();
 		}
@@ -216,6 +217,7 @@ function move_down(position) {
 			$('#'+task_id).insertAfter($('#'+task_id).next());
 			update_task($('#'+task_id));
 			update_task($('#'+task_id).next());
+			update_task($('#'+task_id).prev());
 			// update_first_and_last();
 			// swap_div(task_id,other_task_id);
 		}
