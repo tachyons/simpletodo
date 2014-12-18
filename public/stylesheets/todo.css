@@ -491,13 +491,13 @@ display:none;
 #task_list {
   min-height: 500px;
 }
-#task_list > div:first-of-type div .up_button{ 
+#task_list > .task:first-of-type div .up_button{ 
   display: none; 
 }
-#task_list > div:last-of-type div .down_button{ 
+#task_list > .task:last-of-type div .down_button{ 
   display: none;
 }
-.down_button:last-of-type{ 
+.down_button:nth-last-child(1){ 
   display: none;
 }
 .user_div {
