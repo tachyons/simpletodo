@@ -39,6 +39,9 @@
 	</div>
 	<div id="task_list">
 		<%= render :partial => @tasks %>
+		<% if @tasks.length <=0 %>
+		<center>No results</center>
+		<% end %>
 		<% if @tasks.next_page %>
 			<nav id="page-nav" style="width:100%; text-align:center">
 			 <% if @search_text.nil? %>
