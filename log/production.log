@@ -4737,3 +4737,37 @@ Completed in 34ms (View: 2, DB: 25) | 200 OK [http://localhost/tasks/show/270]
 Processing TasksController#show (for 127.0.0.1 at 2014-12-18 12:38:17) [GET]
   Parameters: {"controller"=>"tasks", "id"=>"300", "action"=>"show"}
 Completed in 87ms (View: 1, DB: 81) | 200 OK [http://localhost/tasks/show/300]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2014-12-18 12:42:11) [GET]
+  Parameters: {"controller"=>"user_sessions", "action"=>"destroy"}
+Redirected to http://localhost:3000/
+Completed in 49ms (DB: 43) | 302 Found [http://localhost/logout]
+
+
+Processing TasksController#index (for 127.0.0.1 at 2014-12-18 12:42:11) [GET]
+  Parameters: {"controller"=>"tasks", "action"=>"index"}
+Redirected to http://localhost:3000/login
+Filter chain halted as [:check_loggedin] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2014-12-18 12:42:11) [GET]
+  Parameters: {"controller"=>"user_sessions", "action"=>"new"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2014-12-18 12:42:12) [GET]
+  Parameters: {"controller"=>"users", "action"=>"new"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2014-12-18 12:42:22) [POST]
+  Parameters: {"controller"=>"users", "authenticity_token"=>"YKgtAdcb2iaHU4WmIaj9J/DoounAa5MAO3iPxoHJdbg=", "action"=>"create", "user"=>{"email"=>"aboobacker@foradian.com", "name"=>"Aboobacker", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 8ms (View: 5, DB: 1) | 200 OK [http://localhost/users]
