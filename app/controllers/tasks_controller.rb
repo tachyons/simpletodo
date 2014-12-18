@@ -153,6 +153,15 @@ class TasksController < ApplicationController
       render :text => nil
     end
   end
+  def delete_share
+    task_id=params[:id]
+    task_share=TaskShare.find_by_user_id_and_task_id(current_user.id,task_id)
+    if task_share.destroy
+      render :text => "success"
+    else
+      render :text => "failed"
+    end
+  end
   def share_task
      @task = @user.tasks.find(params[:id])
      @task_id=params[:id];

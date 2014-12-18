@@ -8,4 +8,7 @@ class TaskShare < ActiveRecord::Base
 		task_share_one.save!
 		task_share_two.save!
 	end
+	# def self.find_by_user_and_task(user_id,task_id)
+
+	# end
 end

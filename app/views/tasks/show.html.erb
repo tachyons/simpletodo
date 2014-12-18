@@ -33,8 +33,10 @@
 			</div>
 			<div class="col-md-4 pull-right button_block">
 				<% if @task.user.id== @user.id %>
-					<button class="delete_button" onclick="confirm_delete_task_modal(<%= @task.id %>)"></button>
-				<% end %>
+					<button class="delete_button" onclick="confirm_delete_task_modal(<%= @task.id %>,true)"></button>
+				<% else %>
+					<button class="delete_button" onclick="confirm_delete_task_modal(<%= @task.id %>,false)"></button>
+				<%  end %>
 			</div>
 		</div>
 		<div id="task-bottom" class="row">

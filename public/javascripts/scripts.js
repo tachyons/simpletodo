@@ -140,18 +140,30 @@ function confirm_delete_task (id){
 	$('#task'+id).css('border-color', '#c1392b');
 	$('#task'+id).css('border-style', 'solid');
 }
-function confirm_delete_task_modal (id){
+function confirm_delete_task_modal (id,condition){
 	bootbox.confirm("Are you sure?", function(result) {
 	  if(result==true) {
-	  	$.ajax({
-			url: '/tasks/'+id,
-			type: 'DELETE',
-			success: function(result) {
-				//alert("success")
-				$('#task'+id).remove();
-				// update_first_and_last();
-			}
-		});
+	  	if(condition) {
+		  	$.ajax({
+				url: '/tasks/'+id,
+				type: 'DELETE',
+				success: function(result) {
+					//alert("success")
+					$('#task'+id).remove();
+					// update_first_and_last();
+				}
+			});
+		  } else {
+		  	$.ajax({
+				url: '/tasks/delete_share/'+id,
+				type: 'DELETE',
+				success: function(result) {
+					//alert("success")
+					$('#task'+id).remove();
+					// update_first_and_last();
+				}
+			});
+		  }
 	  	window.location.replace("/tasks");
 	  	}
 
