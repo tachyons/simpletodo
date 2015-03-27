@@ -6,6 +6,7 @@ class TasksController < ApplicationController
   	@task=Task.new(params[:user])
     @task.user_id=@user.id;
     if @task.save!
+      # @user.shared_lists.all(:joins=>"inner join tasks t ",:select=>"tasks.*,position",:group=>:position)
       @task=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:conditions => "tasks.id = #{@task.id} and task_shares.user_id=#{@user.id}")
       # @accessible_tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position")
       render :partial => @task
@@ -23,10 +24,10 @@ class TasksController < ApplicationController
       end
       if params[:completed]=="true"
         # @tasks=@user.tasks.find_all_by_status(1).sort_by(&:"id").reverse
-        @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 1 and tasks.name LIKE '#{search_text}%'")
+        @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 1 and tasks.name LIKE '%#{search_text}%'")
         @tab="completed"
       else
-        @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 0 and tasks.name LIKE '#{search_text}%'")
+        @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 0 and tasks.name LIKE '%#{search_text}%'")
         # @tab="completed"
         # @tasks=@user.shared_tasks.find_all_by_status(0).sort_by(&:"id").reverse
         @tab="home"

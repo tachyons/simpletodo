@@ -11,6 +11,7 @@ $(document).ready(function(){
 					// update_first_and_last();
 				});
 				$('#input_task').val('');
+				$('result_status').val('');
 			}
 		}
 	});

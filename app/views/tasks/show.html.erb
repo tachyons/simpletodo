@@ -46,7 +46,9 @@
 					<div id="slider"></div>
 					<span id="slider_count">38%</span>
 				</div>
+				<% if @shared_users.length >1 %>
 				Shared with:
+				<% end %>
 				<% for user in @shared_users %>
 					<% if user.name!=@user.name %>
 					 <%=h user.name %>
@@ -124,6 +126,22 @@ $(document).ready(function(){
 	<% end %>
 });
 </script>
+<script type="text/javascript">
+	//periodic comment updater
+	(function worker() {
+	  $.ajax({
+	    url: '/tasks/<%= @task.id %>/comments', 
+	    success: function(data) {
+	      $('.result').html(data);
+	    },
+	    complete: function() {
+	      // Schedule the next request when the current one's complete
+	      setTimeout(worker, 5000);
+	    }
+	  });
+	})();
+</script>
+
 <style type="text/css">
 	#status_button {
 		margin-top: 16px;
