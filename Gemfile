@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 ruby "1.8.7"
-gem 'rails', '=2.3.14'
+gem 'rails', '=2.3.18'
 gem 'will_paginate','~> 2.3.16'
 gem 'i18n' ,'0.4.0'
 gem 'mysql'
