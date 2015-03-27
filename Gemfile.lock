@@ -1,16 +1,16 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    actionmailer (2.3.12)
-      actionpack (= 2.3.12)
-    actionpack (2.3.12)
-      activesupport (= 2.3.12)
+    actionmailer (2.3.14)
+      actionpack (= 2.3.14)
+    actionpack (2.3.14)
+      activesupport (= 2.3.14)
       rack (~> 1.1.0)
-    activerecord (2.3.12)
-      activesupport (= 2.3.12)
-    activeresource (2.3.12)
-      activesupport (= 2.3.12)
-    activesupport (2.3.12)
+    activerecord (2.3.14)
+      activesupport (= 2.3.14)
+    activeresource (2.3.14)
+      activesupport (= 2.3.14)
+    activesupport (2.3.14)
     authlogic (2.1.6)
       activesupport
     bcrypt-ruby (3.0.1)
@@ -47,12 +47,12 @@ GEM
     mysql (2.9.1)
     nifty-generators (0.4.6)
     rack (1.1.6)
-    rails (2.3.12)
-      actionmailer (= 2.3.12)
-      actionpack (= 2.3.12)
-      activerecord (= 2.3.12)
-      activeresource (= 2.3.12)
-      activesupport (= 2.3.12)
+    rails (2.3.14)
+      actionmailer (= 2.3.14)
+      actionpack (= 2.3.14)
+      activerecord (= 2.3.14)
+      activeresource (= 2.3.14)
+      activesupport (= 2.3.14)
       rake (>= 0.8.3)
     rails-footnotes (3.6.7)
     rails_xss (0.5.1)
@@ -95,7 +95,7 @@ DEPENDENCIES
   mongrel
   mysql
   nifty-generators
-  rails (= 2.3.12)
+  rails (= 2.3.14)
   rails-footnotes
   rails_xss
   rake (~> 0.8.7)
