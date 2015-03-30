@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Thanks for signing up, we've delivered an email to you with instructions on how to complete your registration!"
-      @user.deliver_verification_instructions!
+      @user.verification_instructions.deliver
       redirect_to root_url
     else
       render :action => 'new'
