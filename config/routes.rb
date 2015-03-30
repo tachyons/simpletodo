@@ -14,6 +14,7 @@ Todo::Application.routes.draw do
   end
 
   resources :tasks do
+    resources :comments
     collection do
       post :share_task
       put :change_progress
