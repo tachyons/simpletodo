@@ -4,7 +4,7 @@ class CreateTaskShares < ActiveRecord::Migration
     t.references :task
     t.references :user
     t.timestamps
-    add_index :task_shares, [:user_id, :task_id]
+    # add_index :task_shares, [:user_id, :task_id]
     end
   end
 
