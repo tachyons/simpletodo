@@ -1,33 +1,43 @@
-source "http://rubygems.org"
-ruby "1.8.7"
-gem 'rails', '=2.3.18'
-gem 'will_paginate','~> 2.3.16'
-gem 'i18n' ,'0.4.0'
-gem 'mysql'
-gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'authlogic', '2.1.6'
-gem 'rake', '~> 0.8.7',:require => false
-gem 'nifty-generators'
-gem 'rails_xss'
+source 'http://rubygems.org'
+
+gem 'rails', '3.1.12'
+
+# Bundle edge Rails instead:
+# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+
+gem 'mysql2'
+gem 'will_paginate', '~> 3.0.6'
+gem 'i18n' ,'0.6.3'
 gem 'mongrel'
+gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'authlogic'
+gem 'json'
 
-# bundler requires these gems in all environments
-# gem 'nokogiri', '1.4.2'
-# gem 'geokit'
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  # gem 'sass-rails',   '~> 3.1.5'
+  # gem 'coffee-rails', '~> 3.1.1'
 
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer'
+
+  # gem 'uglifier', '>= 1.0.3'
+end
+
+# gem 'jquery-rails'
 group :development do
-  # bundler requires these gems in development
-  gem 'rails-footnotes'
-  gem 'brakeman', :require => false
-  gem 'hirb'
-  # gem "query_reviewer"
-  # gem 'guard', '1.8.3'
-  # gem 'guard-brakeman'
-    #gem "debugger"
+  # gem "better_errors"
 end
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
 
-group :test do
-  # bundler requires these gems while running tests
-   gem 'rspec'
-   gem 'faker'
-end
+# Use unicorn as the web server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'ruby-debug'
+
