@@ -35,11 +35,7 @@ GEM
       activesupport (>= 3.0.0)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
-    cgi_multipart_eof_fix (2.5.0)
-    daemons (1.2.2)
     erubis (2.7.0)
-    fastthread (1.0.7)
-    gem_plugin (0.2.3)
     hike (1.2.3)
     i18n (0.6.3)
     json (1.8.2)
@@ -48,11 +44,6 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
-    mongrel (1.1.5)
-      cgi_multipart_eof_fix (>= 2.4)
-      daemons (>= 1.0.3)
-      fastthread (>= 1.0.1)
-      gem_plugin (>= 0.2.3)
     multi_json (1.11.0)
     mysql2 (0.3.18)
     polyglot (0.3.5)
@@ -104,7 +95,6 @@ DEPENDENCIES
   i18n (= 0.6.3)
   json
   mail
-  mongrel
   mysql2
   rails (= 3.1.12)
   will_paginate (~> 3.0.6)
