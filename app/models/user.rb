@@ -34,16 +34,16 @@ class User < ActiveRecord::Base
   end
 	def deliver_verification_instructions!
 	  reset_perishable_token!
-	  UserMailer.deliver_verification_instructions(self)
+	  UserMailer.verification_instructions(self).deliver
 	end
   def deliver_password_reset_instructions!  
     reset_perishable_token!  
-   UserMailer.deliver_password_reset_instructions(self)  
+   UserMailer.password_reset_instructions(self).deliver  
   end
-  def deliver_password_reset_instructions!
-    reset_perishable_token!
-    UserMailer.deliver_password_reset_instructions(self)
-  end
+  # def deliver_password_reset_instructions!
+  #   reset_perishable_token!
+  #   UserMailer.deliver_password_reset_instructions(self)
+  # end
   def verify!
     self.verified = true
     self.save

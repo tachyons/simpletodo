@@ -5,18 +5,18 @@
   </div>
   <hr/>
   <div id="signup">
-    <% form_for @user , :as => :user do |user_form| %>
-           <% unless user_form.error_messages.empty? %>
-            <div class="alert alert-danger alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert">
-                  <span aria-hidden="true">&times;</span>
-                  <span class="sr-only">Close</span>
-                </button>
-                <%= 
-                 user_form.error_messages :header_message => "Invalid details!",:message => "You'll need to fix the following issues:",:header_tag => :h5
-                 %>
-            </div>
-            <% end %>
+    <%= form_for @user , :as => :user do |user_form| %>
+       <%# unless user_form.error_messages.empty? %>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+              <span class="sr-only">Close</span>
+            </button>
+            <%#= 
+             user_form.error_messages :header_message => "Invalid details!",:message => "You'll need to fix the following issues:",:header_tag => :h5
+             %>
+        </div>
+        <%# end %>
         <div class="form_entry">
           <%= user_form.label :name %>
           <%= user_form.text_field :name, :placeholder=>"",:type=>"text",:id=>"inputname",:class=>"input-control pull-right" %>
