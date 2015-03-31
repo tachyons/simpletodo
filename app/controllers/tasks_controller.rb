@@ -126,10 +126,11 @@ class TasksController < ApplicationController
     @users=User.all
     @accessible_tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position")
     # @task = @accessible_tasks[params[:id].to_i]
-    @task=@accessible_tasks.detect{|x| x.task_id==task_id}
+    @task=@accessible_tasks.detect{|x| x.task_id=task_id}
     # @task = @user.sharedtasks.find(params[:id])
     @shared_users=Task.find_by_id(task_id).shared_users
-    @task_owner=User.find_by_id(@task.user_id)
+    # @task_owner=User.find_by_id(@task.user_id)
+    @task_owner=@task.user
     # @task_owner=User.find(2)
     if request.xhr? #TODO remove this workaround 
       render :partial => @task
