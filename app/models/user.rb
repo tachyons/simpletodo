@@ -6,10 +6,26 @@ class User < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :email
   validates_presence_of :password ,:on => :create
-  has_many:tasks
-  has_many:comments
-  has_many:task_shares
-  has_many:shared_tasks,:class_name=>'Task', :through => :task_shares
+  has_many :tasks
+  has_many :comments
+  has_many :task_shares
+  has_many :shared_tasks,:class_name=>'Task', :through => :task_shares
+  has_many :friendships
+  has_many :friends,
+            :through =>:friendships,
+            :source =>:friend,
+            :conditions => "status='accepted'"
+  has_many :requested_friends,
+            :through =>:friendships,
+            :source =>:friend,
+            :conditions => "status='requested'",
+            :order=>"friendships.created_at"
+  has_many :pending_friends,
+            :through =>:friendships,
+            :source =>:friend,
+            :conditions => "status='pending'",
+            :order=>"friendships.created_at"
+
   # has_many :shared_tasks, :through => :task_shares
   acts_as_authentic do |c|
     c.validates_length_of_login_field_options :within=>1..30 #username can be 1 to 30 characters long

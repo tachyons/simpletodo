@@ -30,6 +30,7 @@ end
 # gem 'jquery-rails'
 group :development do
   # gem "better_errors"
+  gem 'hirb'
 end
 group :production do
   # gems specifically for Heroku go here

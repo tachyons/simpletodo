@@ -123,7 +123,7 @@ class TasksController < ApplicationController
   end
   def show
     task_id=params[:id].to_i
-    @users=User.all
+    @users=current_user.friends
     @accessible_tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position")
     # @task = @accessible_tasks[params[:id].to_i]
     @task=@accessible_tasks.detect{|x| x.id==task_id}
