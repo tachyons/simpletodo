@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = current_user
   end
   def index
-    @users=User.all
+    @users=User.all-[current_user]
   end
   def change_password
     @user = current_user
