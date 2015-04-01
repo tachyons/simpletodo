@@ -22,11 +22,9 @@ class TasksController < ApplicationController
       end
       if params[:completed]=="true"
         @tasks=@user.shared_tasks.search(search_text,"inactive").joins(:task_shares).select("tasks.*,task_shares.position").order("task_shares.position DESC")
-        # @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = true and tasks.name LIKE '%#{search_text}%'")
         @tab="completed"
       else
         @tasks=@user.shared_tasks.search(search_text,"active").joins(:task_shares).select("tasks.*,task_shares.position").order("task_shares.position DESC")
-        # @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = false and tasks.name LIKE '%#{search_text}%'")
         @tab="home"
       end
        @tasks= @tasks.paginate(:page => params[:page], :per_page => 8,:order=> "id DESC")
@@ -85,7 +83,7 @@ class TasksController < ApplicationController
   end
   def move_down
     @position=params[:task][:position]
-    @task = Task.find_task_by_position_and_user_id(@position,@user.id)
+    @task=Task.find_by_position(@position)
     @down_task=@task.find_previous_task_by_position_and_user_id(@position,@user.id)
     if @task && @down_task
       @task_position=@task.position
@@ -102,7 +100,7 @@ class TasksController < ApplicationController
   end
   def move_up
     @position=params[:task][:position]
-    @task = Task.find_task_by_position_and_user_id(@position,@user.id)
+    @task=Task.find_by_position(@position)
     @next_task=@task.find_next_task_by_position_and_user_id(@position,@user.id)
     if @task && @next_task
       @task_position=@task.position
