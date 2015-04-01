@@ -6,9 +6,7 @@ class TasksController < ApplicationController
   	@task=Task.new(params[:user])
     @task.user_id=@user.id;
     if @task.save!
-      # @user.shared_lists.all(:joins=>"inner join tasks t ",:select=>"tasks.*,position",:group=>:position)
-      @task=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:conditions => "tasks.id = #{@task.id} and task_shares.user_id=#{@user.id}")
-      # @accessible_tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position")
+      @task=@user.shared_tasks.joins(:task_shares).select("tasks.*,task_shares.position").find(@task.id)
       render :partial => @task
     else
       render :text =>'failed'
