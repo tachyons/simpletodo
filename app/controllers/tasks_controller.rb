@@ -12,6 +12,7 @@ class TasksController < ApplicationController
       render :text =>'failed'
     end
   end
+  #TODO improve search logic and move to model
   def index
     if @user
       search_text=params[:search]
@@ -20,10 +21,12 @@ class TasksController < ApplicationController
         search_text=''
       end
       if params[:completed]=="true"
-        @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = true and tasks.name LIKE '%#{search_text}%'")
+        @tasks=@user.shared_tasks.search(search_text,"inactive").joins(:task_shares).select("tasks.*,task_shares.position")
+        # @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = true and tasks.name LIKE '%#{search_text}%'")
         @tab="completed"
       else
-        @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = false and tasks.name LIKE '%#{search_text}%'")
+        @tasks=@user.shared_tasks.search(search_text,"active").joins(:task_shares).select("tasks.*,task_shares.position")
+        # @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = false and tasks.name LIKE '%#{search_text}%'")
         @tab="home"
       end
        @tasks= @tasks.paginate(:page => params[:page], :per_page => 8,:order=> "id DESC")

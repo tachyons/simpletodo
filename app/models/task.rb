@@ -40,9 +40,15 @@ class Task < ActiveRecord::Base
     user=User.find_by_id(user_id)
     @task=user.shared_tasks.find(:first,:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 0 AND task_shares.position<#{position}")
   end
-  def self.search(search)  
-    if search  
-      where('name LIKE ?', "%#{search}%")  
+  def self.search(search,status="all")  
+    if search
+      if status=="all"
+        where('name LIKE ?', "%#{search}%")
+      elsif status=="active"
+        where('name LIKE ? and status=?', "%#{search}%",false)
+      elsif status=="inactive"
+        where('name LIKE ? and status=?', "%#{search}%",true)
+      end
     else  
       scoped  
     end  
