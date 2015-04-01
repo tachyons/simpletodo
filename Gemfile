@@ -31,7 +31,7 @@ end
 group :development do
   # gem "better_errors"
   gem 'hirb'
-  gem 'thin'
+  # gem 'thin'
   # gem 'ruby-debug'
 end
 group :production do
