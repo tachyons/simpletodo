@@ -21,11 +21,11 @@ class TasksController < ApplicationController
         search_text=''
       end
       if params[:completed]=="true"
-        @tasks=@user.shared_tasks.search(search_text,"inactive").joins(:task_shares).select("tasks.*,task_shares.position")
+        @tasks=@user.shared_tasks.search(search_text,"inactive").joins(:task_shares).select("tasks.*,task_shares.position").order("task_shares.position DESC")
         # @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = true and tasks.name LIKE '%#{search_text}%'")
         @tab="completed"
       else
-        @tasks=@user.shared_tasks.search(search_text,"active").joins(:task_shares).select("tasks.*,task_shares.position")
+        @tasks=@user.shared_tasks.search(search_text,"active").joins(:task_shares).select("tasks.*,task_shares.position").order("task_shares.position DESC")
         # @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = false and tasks.name LIKE '%#{search_text}%'")
         @tab="home"
       end
@@ -33,6 +33,7 @@ class TasksController < ApplicationController
     end
 
   end
+  #TODO code repetition , to be removed
   def task_list
     search_text=params[:search]
     if search_text.nil?
@@ -55,6 +56,7 @@ class TasksController < ApplicationController
       format.xml { head :ok } 
     end
   end
+  #TODO remove ?? . no longer in use
   def change_status
     p params.inspect
     @task = Task.find(params[:task][:id])
@@ -119,13 +121,9 @@ class TasksController < ApplicationController
     task_id=params[:id].to_i
     @users=current_user.friends
     @accessible_tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position")
-    # @task = @accessible_tasks[params[:id].to_i]
     @task=@accessible_tasks.detect{|x| x.id==task_id}
-    # @task = @user.sharedtasks.find(params[:id])
     @shared_users=Task.find_by_id(task_id).shared_users
-    # @task_owner=User.find_by_id(@task.user_id)
     @task_owner=@task.user
-    # @task_owner=User.find(2)
     if request.xhr? #TODO remove this workaround 
       render :partial => @task
     end
@@ -165,11 +163,6 @@ class TasksController < ApplicationController
      @task_id=params[:id];
      #validate TODO
       @user_list=params[:check]
-      p "ss="
-      p @user.id
-      p @task_id
-      # render :text =>@user_list.keys
-      # TaskShare.destroy_all(:task_id => @task_id)
       TaskShare.destroy_all(["task_id = '#{@task_id}' and user_id<>'#{@user.id}'"])
       if @user_list
         for user in @user_list.keys
@@ -179,8 +172,8 @@ class TasksController < ApplicationController
             ts.task_id=@task_id
             ts.position=TaskShare.last.id+1
             unless ts.save!
-            flash[:error]="error"
-            redirect to task_path
+              flash[:error]="error"
+              redirect to task_path
             end
           end
         end
