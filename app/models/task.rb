@@ -7,11 +7,11 @@ class Task < ActiveRecord::Base
   after_create :initialise_sharetask
   def find_next_task_by_position_and_user_id(position,user_id)
     user=User.find_by_id(user_id)
-    @task=user.shared_tasks.find(:last,:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 0 AND task_shares.position>#{position}")
+    user.shared_tasks.joins(:task_shares).select("tasks.*,task_shares.position").where("status = 0 AND task_shares.position>#{position}").order("task_shares.position DESC").last
   end
   def find_previous_task_by_position_and_user_id(position,user_id)
     user=User.find_by_id(user_id)
-    @task=user.shared_tasks.find(:first,:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = 0 AND task_shares.position<#{position}")
+    user.shared_tasks.joins(:task_shares).select("tasks.*,task_shares.position").where("status = 0 AND task_shares.position<#{position}").order("task_shares.position DESC").first
   end
   def self.find_by_position(position)
     Task.joins(:task_shares).select("tasks.*,position").where("task_shares.position=#{position}").first
