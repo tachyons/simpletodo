@@ -15,7 +15,6 @@ class TasksController < ApplicationController
     end
   end
   def index
-  	#@tasks=@user.tasks
     if @user
       search_text=params[:search]
       @search_text=params[:search]
@@ -23,19 +22,13 @@ class TasksController < ApplicationController
         search_text=''
       end
       if params[:completed]=="true"
-        # @tasks=@user.tasks.find_all_by_status(1).sort_by(&:"id").reverse
         @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = true and tasks.name LIKE '%#{search_text}%'")
         @tab="completed"
       else
         @tasks=@user.shared_tasks.all(:select => "DISTINCT(task_shares.task_id),task_shares.position,tasks.*",:joins => 'INNER  JOIN task_shares ts  ON task_shares.task_id = tasks.id',:order => "task_shares.position DESC",:conditions => "status = false and tasks.name LIKE '%#{search_text}%'")
-        # @tab="completed"
-        # @tasks=@user.shared_tasks.find_all_by_status(0).sort_by(&:"id").reverse
         @tab="home"
       end
        @tasks= @tasks.paginate(:page => params[:page], :per_page => 8,:order=> "id DESC")
-       # render :text => @tasks.class
-       # render :text => @tasks[1].position
-       # render :layout =>:index
     end
 
   end
