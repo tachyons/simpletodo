@@ -21,10 +21,10 @@ class TasksController < ApplicationController
         search_text=''
       end
       if params[:completed]=="true"
-        @tasks=@user.shared_tasks.search(search_text,"inactive").joins(:task_shares).select("tasks.*,task_shares.position").order("task_shares.position DESC")
+        @tasks=@user.shared_tasks.search(search_text,"inactive").joins(:task_shares).select("DISTINCT(task_shares.task_id),tasks.*,task_shares.position").order("task_shares.position DESC")
         @tab="completed"
       else
-        @tasks=@user.shared_tasks.search(search_text,"active").joins(:task_shares).select("tasks.*,task_shares.position").order("task_shares.position DESC")
+        @tasks=@user.shared_tasks.search(search_text,"active").joins(:task_shares).select("DISTINCT(task_shares.task_id),tasks.*,task_shares.position").order("task_shares.position DESC")
         @tab="home"
       end
        @tasks= @tasks.paginate(:page => params[:page], :per_page => 8,:order=> "id DESC")

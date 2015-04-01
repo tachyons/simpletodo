@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.12'
+gem 'rails', '3.2.21'
 ruby '1.9.3'
 
 # Bundle edge Rails instead:
@@ -8,7 +8,7 @@ ruby '1.9.3'
 
 gem 'mysql2'
 gem 'will_paginate', '~> 3.0.6'
-gem 'i18n' ,'0.6.3'
+gem 'i18n' ,'~> 0.6'
 # gem 'mongrel'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'authlogic'
@@ -31,6 +31,7 @@ end
 group :development do
   # gem "better_errors"
   gem 'hirb'
+  gem 'thin'
 end
 group :production do
   # gems specifically for Heroku go here
@@ -46,5 +47,5 @@ end
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug'
+gem 'ruby-debug'
 
