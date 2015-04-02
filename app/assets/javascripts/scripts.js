@@ -41,7 +41,7 @@ $(document).ready(function(){
 		loading: {
 			speed: 'slow',
 			finishedMsg: 'No more tasks to load.',
-			img: '/images/ajax-loader.gif'
+			img: '/assets/ajax-loader.gif'
 			}
 	});
 	$("#progress-slider").change(function(event) {
@@ -59,7 +59,7 @@ $(document).ready(function(){
 			}
 		});
 	});
-    $('#user_list').multiselect();
+    // $('#user_list').multiselect();
 
   //   $('#share_button').click(function(event) {
   //   	// alert($('#user_list').val());

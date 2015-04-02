@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="/stylesheets/bootstrap-multiselect.css" type="text/css"/>
-<div id="top_nav" class="row">
+<!-- <link rel="stylesheet" href="/stylesheets/bootstrap-multiselect.css" type="text/css"/>
+ --><div id="top_nav" class="row">
 	<div id="tab_nav" class="col-md-8">
 		<form action="/tasks">
 		<input type="search" id="search_button" name="search" placeholder="Search"> </input>
@@ -128,18 +128,18 @@ $(document).ready(function(){
 </script>
 <script type="text/javascript">
 	//periodic comment updater
-	(function worker() {
-	  $.ajax({
-	    url: '/tasks/<%= @task.id %>/comments', 
-	    success: function(data) {
-	      $('.result').html(data);
-	    },
-	    complete: function() {
-	      // Schedule the next request when the current one's complete
-	      setTimeout(worker, 5000);
-	    }
-	  });
-	})();
+	// (function worker() {
+	//   $.ajax({
+	//     url: '/tasks/<%= @task.id %>/comments', 
+	//     success: function(data) {
+	//       $('.result').html(data);
+	//     },
+	//     complete: function() {
+	//       // Schedule the next request when the current one's complete
+	//       setTimeout(worker, 5000);
+	//     }
+	//   });
+	// })();
 </script>
 
 <style type="text/css">

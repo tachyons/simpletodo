@@ -31,9 +31,9 @@
 		<div id="button_group">
 			<% if @tab=="completed" %>
 						<a class="nav_button active " href="/tasks">Active</a>
-						<a class="nav_button " href="/tasks?completed=true">Inactive</a>
+						<a class="nav_button disabled" href="#">Inactive</a>
 					<% else %>
-						<a class="nav_button  " href="/tasks">Active</a>
+						<a class="nav_button  disabled" href="#">Active</a>
 						<a class="nav_button active " href="/tasks?completed=true">Inactive</a>
 			<% end %>
 		</div>

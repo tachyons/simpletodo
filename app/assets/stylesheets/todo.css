@@ -220,47 +220,47 @@ button {
 }
 /* Sprite Section */
 .delete_button { 
-  background: url('/images/iconsprite.png') no-repeat -83px -11px; 
+  background: url('/assets/iconsprite.png') no-repeat -83px -11px; 
   width: 14px; 
   height: 14px;
 }
 .delete_button:hover {
-  background: url('/images/iconsprite.png') no-repeat -83px -47px;
+  background: url('/assets/iconsprite.png') no-repeat -83px -47px;
 }
 .up_button {
-  background: url('/images/iconsprite.png') no-repeat -48px -14px; 
+  background: url('/assets/iconsprite.png') no-repeat -48px -14px; 
   width: 12px; 
   height: 9px;
 }
 .down_button {
-  background: url('/images/iconsprite.png') no-repeat -12px -13px; 
+  background: url('/assets/iconsprite.png') no-repeat -12px -13px; 
   width: 12px; 
   height: 9px;
 }
 .up_button:hover {
-  background: url('/images/iconsprite.png') no-repeat -48px -50px; 
+  background: url('/assets/iconsprite.png') no-repeat -48px -50px; 
 }
 .down_button:hover {
-  background: url('/images/iconsprite.png') no-repeat -12px -49px;
+  background: url('/assets/iconsprite.png') no-repeat -12px -49px;
 }
 .check_button {
-  background: url('/images/iconsprite.png') no-repeat -145px -1px; 
+  background: url('/assets/iconsprite.png') no-repeat -145px -1px; 
   width: 34px; 
   height: 34px;
 }
 .uncheck_button {
-  background: url('/images/iconsprite.png') no-repeat -145px -73px; 
+  background: url('/assets/iconsprite.png') no-repeat -145px -73px; 
   width: 34px; 
   height: 34px;
 }
 .check_button:hover {
-  background: url('/images/iconsprite.png') no-repeat -145px -37px;
+  background: url('/assets/iconsprite.png') no-repeat -145px -37px;
 }
 .uncheck_button:hover {
-  background: url('/images/iconsprite.png') no-repeat -145px -109px;
+  background: url('/assets/iconsprite.png') no-repeat -145px -109px;
 }
 #input_img {
-  background: url('/images/iconsprite.png') no-repeat -116px -8px; 
+  background: url('/assets/iconsprite.png') no-repeat -116px -8px; 
   width: 20px; 
   height: 20px;
  position:absolute;

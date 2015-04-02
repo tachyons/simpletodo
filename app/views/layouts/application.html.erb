@@ -5,25 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Simple TODO</title>
-    <%= stylesheet_link_tag 'bootstrap.min' %>
-    <%= stylesheet_link_tag 'green.css' %>
+    <%= stylesheet_link_tag "application" %>
+    <%#= stylesheet_link_tag 'bootstrap.min' %>
+    <%#= stylesheet_link_tag 'green.css' %>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/stylesheets/flat-ui.min.css" type="text/css"/>
+     <%#= stylesheet_link_tag 'flat-ui.min.css' %>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <%= javascript_include_tag 'jquery.min.js' %>
+    <%= javascript_include_tag :application %>
+    <%#= javascript_include_tag 'jquery.min.js' %>
     <!-- <script src="/javascripts/flat-ui.min.js"></script> -->
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/javascripts/flat-ui.min.js"></script>
-    <%= javascript_include_tag 'jquery.infinitescroll.js' %>
-    <%= javascript_include_tag 'jquery-swapsies.js' %>
-    <%= javascript_include_tag 'bootstrap-multiselect.js' %>
+    <%#= javascript_include_tag 'flat-ui.min.js' %>
+    <%#= javascript_include_tag 'jquery.infinitescroll.js' %>
+    <%#= javascript_include_tag 'jquery-swapsies.js' %>
+    <%#= javascript_include_tag 'bootstrap-multiselect.js' %>
 <!--     <script type="text/javascript" src="/javascripts/bootstrap-multiselect.js"></script> -->
-    <%= javascript_include_tag 'icheck.min.js' %>
-    <%= javascript_include_tag 'bootbox.min.js' %>
-    <%= javascript_include_tag 'scripts' %>
+    <%#= javascript_include_tag 'icheck.min.js' %>
+    <%#= javascript_include_tag 'bootbox.min.js' %>
+    <%#= javascript_include_tag 'scripts' %>
     <!-- Custom CSS -->
-    <%= stylesheet_link_tag 'todo.css' %>
+    <%#= stylesheet_link_tag 'todo.css' %>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -51,12 +52,5 @@
     <script type="text/javascript">
     var user_id= '<%= session[:user_id] %>';
     </script>
-   
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- jQuery -->
-
-    
-
-    <!-- < %= javascript_include_tag :all, :recursive => true %> -->
   </body>
 </html>

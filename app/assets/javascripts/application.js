@@ -6,4 +6,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.infinitescroll
+//= require flat-ui.min
+//= require icheck.min
+//= require bootbox.min
 //= require_tree .
+

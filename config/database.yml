@@ -28,14 +28,14 @@ test:
   database: todo_test
   pool: 5
   username: root
-  password:
+  password: mysqlroot
   socket: /var/run/mysqld/mysqld.sock
 
 production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: todo_production
+  database: todo_development
   pool: 5
   username: root
   password: mysqlroot
