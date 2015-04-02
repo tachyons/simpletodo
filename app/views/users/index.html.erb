@@ -8,20 +8,20 @@
 	    <% friendship=Friendship.find_by_user_id_and_friend_id(current_user,user) %>
 	    <% if friendship.nil? %>
 	    	<td>
-	    		<%= link_to "send request",{:controller=>"friendship",:action=>"create",:id=>user.id},:confirm=>"send request?" %>
+	    		<%= link_to "send request",{:controller=>"friendships",:action=>"create",:id=>user.id},:confirm=>"send request?" %>
 	    	</td>
 	    <% elsif friendship.status=="requested" %>
 	    	<td>
-	    		<%= link_to "accept",{:controller=>"friendship",:action=>"accept",:id=>user.id},:confirm=>"are you sure?" %>
-	    		<%= link_to "decline",{:controller=>"friendship",:action=>"decline",:id=>user.id},:confirm=>"are you sure?" %>
+	    		<%= link_to "accept",{:controller=>"friendships",:action=>"accept",:id=>user.id},:confirm=>"are you sure?" %>
+	    		<%= link_to "decline",{:controller=>"friendships",:action=>"decline",:id=>user.id},:confirm=>"are you sure?" %>
 	    	</td>
 	    <% elsif friendship.status=="pending" %>
 	    	<td>
-	    		<%= link_to "cancel",{:controller=>"friendship",:action=>"cancel",:id=>user.id},:confirm=>"are you sure?" %>
+	    		<%= link_to "cancel",{:controller=>"friendships",:action=>"cancel",:id=>user.id},:confirm=>"are you sure?" %>
 	    	</td>
 	    <% elsif friendship.status=="accepted" %>
 	    	<td>
-	    		<%= link_to "unfriend",{:controller=>"friendship",:action=>"delete",:id=>user.id},:confirm=>"are you sure?" %>
+	    		<%= link_to "unfriend",{:controller=>"friendships",:action=>"delete",:id=>user.id},:confirm=>"are you sure?" %>
 	    	</td>
 	    <% end %>
     </tr>

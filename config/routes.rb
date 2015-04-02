@@ -1,6 +1,9 @@
 Todo::Application.routes.draw do
   root :to => "tasks#index"
   resources :user_sessions
+  # resources :friendships do
+  #   delete :delete
+  # end
   resources :users do
     collection do
       get :logout
@@ -30,7 +33,6 @@ Todo::Application.routes.draw do
       post :change_status
     end
   end
-
   resource :user_sessions
   resources :user_verifications, :only => [:show]
   resources :password_resets, :only => [:new, :create, :edit, :update]

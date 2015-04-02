@@ -1,4 +1,4 @@
-class FriendshipController < ApplicationController
+class FriendshipsController < ApplicationController
 	include FriendshipHelper
 	def create
 		friend=User.find(params[:id])
