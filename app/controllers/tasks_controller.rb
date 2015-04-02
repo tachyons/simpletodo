@@ -140,7 +140,7 @@ class TasksController < ApplicationController
       comment=Comment.new
       comment.task_id=params[:task][:id];
       comment.user_id=current_user.id;
-      comment.body="Task has been  updated to <span class='green'>#{params[:task][:progress]}</span> from <span class='green'>#{previous_progress}</span>"
+      comment.body="Task has been  updated to <span class='green'>#{previous_progress}</span> from <span class='green'>#{previous_progress}</span>"
       comment.save
       render comment
     else

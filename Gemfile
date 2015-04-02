@@ -17,6 +17,7 @@ gem 'mail'
 gem 'jquery-rails'
 gem 'rinku', :require => 'rails_rinku'
 gem 'sanitize-rails', require: 'sanitize/rails'
+gem 'gemoji'
 
 # Gems used only for assets and not required
 # in production environments by default.

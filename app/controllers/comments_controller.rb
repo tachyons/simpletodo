@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-   def index
+  include EmojiHelper
+  def index
     @task = Task.find(params[:task_id])
     @comments = @task.comments
   end
