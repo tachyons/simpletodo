@@ -91,6 +91,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     request_store (1.1.0)
+    rinku (1.7.3)
     sass (3.4.13)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -135,6 +136,7 @@ DEPENDENCIES
   mysql2
   pg
   rails (= 3.2.21)
+  rinku
   sass-rails
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)

@@ -1,5 +1,5 @@
 <div class="comment_box">
-	<%= comment.body.html_safe %> <br/>
+	<%= auto_link(comment.body.html_safe) %> <br/>
 	<div class="comment_bottom">
 		<%= comment.user.name %>
 		<span class="gray">on
