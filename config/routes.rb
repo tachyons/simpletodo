@@ -1,6 +1,7 @@
 Todo::Application.routes.draw do
   root :to => "tasks#index"
   resources :user_sessions
+  get '/auth/:provider/callback', to: 'sessions#create'
   # resources :friendships do
   #   delete :delete
   # end

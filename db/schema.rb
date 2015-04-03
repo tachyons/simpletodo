@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150331080817) do
+ActiveRecord::Schema.define(:version => 20150403095430) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
     t.text     "body"
     t.integer  "task_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "friendships", :force => true do |t|
@@ -26,27 +26,33 @@ ActiveRecord::Schema.define(:version => 20150331080817) do
     t.integer  "friend_id"
     t.string   "status"
     t.datetime "accepted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
+
+  create_table "identities", :force => true do |t|
+    t.string  "uid"
+    t.string  "provider"
+    t.integer "user_id"
+  end
+
+  add_index "identities", ["user_id"], :name => "index_identities_on_user_id"
 
   create_table "task_shares", :force => true do |t|
     t.integer  "task_id"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "position"
   end
-
-  add_index "task_shares", ["task_id", "user_id"], :name => "task_id", :unique => true
 
   create_table "tasks", :force => true do |t|
     t.string   "name"
     t.boolean  "status"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "progress",   :default => 0, :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "progress",   :default => 0
   end
 
   create_table "users", :force => true do |t|
@@ -63,8 +69,8 @@ ActiveRecord::Schema.define(:version => 20150331080817) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.boolean  "verified",           :default => false
   end
 

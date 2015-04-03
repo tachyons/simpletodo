@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :task_shares
   has_many :shared_tasks,:class_name=>'Task', :through => :task_shares
+  has_many :identities
   has_many :friendships
   has_many :friends,
             :through =>:friendships,
@@ -27,12 +28,17 @@ class User < ActiveRecord::Base
             :order=>"friendships.created_at"
 
   # has_many :shared_tasks, :through => :task_shares
-  acts_as_authentic do |c|
-    c.validates_length_of_login_field_options :within=>1..30 #username can be 1 to 30 characters long
-    c.validates_format_of_login_field_options = {:with => /^[a-zA-Z0-9_]+$/, :message => I18n.t('error_messages.login_invalid', :default => "should use only alphabets, numbers and underscores no other characters.")} #username can only contain alphabets, numbers and "_" no other characters permitted
+  acts_as_authentic do |config|
+    external = Proc.new { |r| r.externally_authenticated }
+    config.validates_length_of_login_field_options :within=>1..30 #username can be 1 to 30 characters long
+    config.validates_format_of_login_field_options = {:with => /^[a-zA-Z0-9_]+$/, :message => I18n.t('error_messages.login_invalid', :default => "should use only alphabets, numbers and underscores no other characters.")} #username can only contain alphabets, numbers and "_" no other characters permitted
     #the below two would make password and password_confirmation optional i.e, you don't have to fill it.
-    c.ignore_blank_passwords = true #ignoring passwords
-    c.validate_password_field = false #ignoring validations for password fields
+    config.ignore_blank_passwords = true #ignoring passwords
+    config.validate_password_field = false #ignoring validations for password fields
+    #omni auth experminet
+    config.merge_validates_confirmation_of_password_field_options(:unless => external)
+    config.merge_validates_length_of_password_confirmation_field_options(:unless => external)
+    config.merge_validates_length_of_password_field_options(:unless => external)
   end
   
   #here we add required validations for a new record and pre-existing record
@@ -55,6 +61,15 @@ class User < ActiveRecord::Base
   def deliver_password_reset_instructions!  
     reset_perishable_token!  
    UserMailer.password_reset_instructions(self).deliver  
+  end
+  def self.create_with_omniauth(info)
+    create(name: info['name'], email: info['email'])
+  end
+  def externally_authenticated
+    return !provider.nil?
+  end
+  def self.ignored_attributes
+    [ :persistence_token, :crypted_password, :password_salt, :perishable_token ]
   end
   # def deliver_password_reset_instructions!
   #   reset_perishable_token!

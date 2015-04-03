@@ -19,6 +19,11 @@ gem 'jquery-textcomplete-rails'
 gem 'rinku', :require => 'rails_rinku'
 gem 'sanitize-rails', require: 'sanitize/rails'
 gem 'gemoji'
+#auth 
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-linkedin'
+gem "koala", "~> 1.10.0rc" # Facebook API
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -84,9 +84,12 @@
 </div>
 <!-- < %= render :partial =>"comments/form" %> -->
 <input id="comment_body" name="comment[body]" size="30" type="text" placeholder="Add the comment Hit 'Enter' to post">
+<!-- <div class="textarea-wrapper">
+    <span class="label label-default">#textarea1</span>
+    <textarea class="form-control" id="textarea1" rows="4">:a</textarea>
+</div> -->
 
 <span id="task_id" style="display:none;"><%= @task.id %> </span> <br/>
-
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -95,7 +98,7 @@
 	    	<%= form_tag "/tasks/share_task/"+@task.id.to_s,:method=>:put %>
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					<h6 class="modal-title" id="myModalLabel">Add people to this task</h6>
+					<h6 class="modal-title" id="myModalLabel">Add friends to this task</h6>
 				</div>
 				<div class="modal-body">
 				<!-- <form action="/tasks/share_task/<%= @task.id %>" method="POST"> -->

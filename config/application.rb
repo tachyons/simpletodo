@@ -47,5 +47,6 @@ module Todo
     #TODO replace ?
     config.assets.paths << Emoji.images_path
     config.assets.precompile << "emoji/**/*.png"
+    Koala.config.api_version = 'v2.0'
   end
 end
