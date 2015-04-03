@@ -30,6 +30,7 @@ class UserMailer < ActionMailer::Base
     subject="You got a friend request"
     headers['Content-Type'] = 'text/html'
     @friend=friend
+    @user=user
     mail(:to => friend.email, :subject => subject)
   end
 end
