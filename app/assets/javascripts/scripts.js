@@ -81,14 +81,14 @@ $(document).ready(function(){
 	    radioClass: 'iradio_flat-green'
 	});
 	var $slider = $("#slider");
-	if ($slider.length > 0) {
-	  $slider.slider({
-	    min: 0,
-	    max: 100,
-	    value: 3,
-	    orientation: "horizontal",
-	    range: "min"
-	  });
+		if ($slider.length > 0) {
+		  $slider.slider({
+		    min: 0,
+		    max: 100,
+		    value: 0,
+		    orientation: "horizontal",
+		    range: "min"
+		  });
 	}
 	var WaitCount=0;
 	$( "#slider" ).slider({

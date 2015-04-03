@@ -132,17 +132,21 @@ class TasksController < ApplicationController
   end
   def change_progress
     #TODO to be secured
-    @task = @user.shared_tasks.find(params[:task][:id])
+    task_id=params[:task][:id]
+    new_progress=params[:task][:progress]
+    @task = @user.shared_tasks.find(task_id)
     previous_progress=@task.progress;
-    @task.progress=params[:task][:progress]
-    if @task.save && previous_progress < @task.progress
-      #create a new comment
-      comment=Comment.new
-      comment.task_id=params[:task][:id];
-      comment.user_id=current_user.id;
-      comment.body="Task has been  updated to <span class='green'>#{previous_progress}</span> from <span class='green'>#{previous_progress}</span>"
-      comment.save
-      render comment
+    @task.progress=new_progress
+    if previous_progress < @task.progress
+      if @task.save 
+        #create a new comment
+        comment=Comment.new
+        comment.task_id=task_id;
+        comment.user_id=current_user.id;
+        comment.body="Task has been  updated to <span class='green'>#{new_progress}</span> from <span class='green'>#{previous_progress}</span>"
+        comment.save
+        render comment
+      end
     else
       render :text => nil
     end

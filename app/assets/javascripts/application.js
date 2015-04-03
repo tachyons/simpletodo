@@ -10,5 +10,6 @@
 //= require flat-ui.min
 //= require icheck.min
 //= require bootbox.min
+//= require jquery-textcomplete
 //= require_tree .
 

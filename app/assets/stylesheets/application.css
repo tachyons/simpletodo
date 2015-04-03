@@ -7,5 +7,6 @@
  *= require green
  *= require flat-ui.min
  *= bootstrap-multiselect
+ *= require jquery-textcomplete
  *= require_tree . 
 */

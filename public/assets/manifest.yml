@@ -7,8 +7,8 @@ iconsprite.png: iconsprite-8f37faa52a6f931745c170376f62a4c7.png
 iconsprite/index.png: iconsprite-8f37faa52a6f931745c170376f62a4c7.png
 rails.png: rails-71e944d9b39043eba50b77788c0d767f.png
 rails/index.png: rails-71e944d9b39043eba50b77788c0d767f.png
-application.js: application-85aa83e5ede60955847e7a4437d8f17c.js
-application/index.js: application-85aa83e5ede60955847e7a4437d8f17c.js
+application.js: application-e1baaf369e15c9ff17ab76966c8c497c.js
+application/index.js: application-e1baaf369e15c9ff17ab76966c8c497c.js
 application.css: application-89e17929acfafb168e774bafdf54afa3.css
 application/index.css: application-89e17929acfafb168e774bafdf54afa3.css
 glyphicons-halflings-regular.eot: glyphicons-halflings-regular-c636642c40bcbf8fadcdc2f0ca5ab4a0.eot
