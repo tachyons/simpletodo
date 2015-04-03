@@ -10,9 +10,9 @@ class UserMailer < ActionMailer::Base
     end
   end
   def verification_instructions(user)
-    subject      ="Email Verification"
-    recipients   = user.email
-    sent_on       =Time.now
+    subject = "Email Verification"
+    recipients = user.email
+    sent_on      = Time.now
     @verification_url = user_verification_url(user.perishable_token)
     headers['Content-Type'] = 'text/html'
     mail(:to => user.email, :subject => subject)
@@ -24,6 +24,12 @@ class UserMailer < ActionMailer::Base
     sent_on      =Time.now
     @edit_password_reset_url = edit_password_reset_url(user.perishable_token)
     headers['Content-Type'] = 'text/html'
+    mail(:to => user.email, :subject => subject)
+  end
+  def friend_request(user,friend)
+    subject="You got a friend request"
+    headers['Content-Type'] = 'text/html'
+    @friend=friend
     mail(:to => user.email, :subject => subject)
   end
 end

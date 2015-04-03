@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150403095430) do
+ActiveRecord::Schema.define(:version => 20150403114146) do
+
+  create_table "check_list_items", :force => true do |t|
+    t.integer  "check_list_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "check_list_items", ["check_list_id"], :name => "index_check_list_items_on_check_list_id"
+
+  create_table "check_lists", :force => true do |t|
+    t.integer  "task_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "check_lists", ["task_id"], :name => "index_check_lists_on_task_id"
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -62,16 +78,20 @@ ActiveRecord::Schema.define(:version => 20150403095430) do
     t.string   "password_salt"
     t.string   "persistence_token"
     t.string   "perishable_token"
-    t.integer  "login_count",        :default => 0,     :null => false
-    t.integer  "failed_login_count", :default => 0,     :null => false
+    t.integer  "login_count",         :default => 0,     :null => false
+    t.integer  "failed_login_count",  :default => 0,     :null => false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
-    t.boolean  "verified",           :default => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.boolean  "verified",            :default => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
 end

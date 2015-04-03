@@ -14,6 +14,7 @@ Todo::Application.routes.draw do
       post :change_password
       get :login
       post :login
+      get :settings
     end
   end
 

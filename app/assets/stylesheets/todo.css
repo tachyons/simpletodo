@@ -600,3 +600,15 @@ padding: 30px;
 #result_status {
   
 }
+.todo_block {
+  border-radius: 3px;
+  width: 600px;
+  min-height: 523px;
+  background-color: #ffffff;
+  margin: 0 auto;
+}
+.profile {
+  margin: 0px auto;
+  width: 500px;
+  min-height: 196px;
+}

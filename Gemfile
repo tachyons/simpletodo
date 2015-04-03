@@ -19,6 +19,7 @@ gem 'jquery-textcomplete-rails'
 gem 'rinku', :require => 'rails_rinku'
 gem 'sanitize-rails', require: 'sanitize/rails'
 gem 'gemoji'
+gem "paperclip", "~> 4.2"
 #auth 
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'

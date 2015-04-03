@@ -1,82 +1,19 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-			<div class="panel panel-info">
-				<div class="panel-heading">
-					<h3 class="panel-title"> <%= @user.name %></h3>
-				</div>
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> 
-					</div>
-
-					<!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
-					<dl>
-					<dt>DEPARTMENT:</dt>
-					<dd>Administrator</dd>
-					<dt>HIRE DATE</dt>
-					<dd>11/12/2013</dd>
-					<dt>DATE OF BIRTH</dt>
-					<dd>11/12/2013</dd>
-					<dt>GENDER</dt>
-					<dd>Male</dd>
-					</dl>
-					</div>-->
-					<div class=" col-md-9 col-lg-9 "> 
-						<table class="table table-user-information">
-							<tbody>
-								<!-- <tr>
-									<td>Department:</td>
-									<td>Programming</td>
-								</tr>
-								<tr>
-									<td>Hire date:</td>
-									<td>06/23/2013</td>
-								</tr> -->
-								<!-- <tr>
-									<td>User Name:</td>
-									<td>< %= @user.username %></td>
-								</tr>
-								<tr>
-									<td>Date of Birth</td>
-									<td> < %= @user.date_of_birth %></td>
-								</tr>
-
-								<tr>
-								<tr>
-									<td>Gender</td>
-									<td> < %= @user.sex %></td>
-								</tr> -->
-								<!-- <tr>
-									<td>Home Address</td>
-									<td>Metro Manila,Philippines</td>
-								</tr> -->
-								<tr>
-								<td>Email</td>
-									<td><a href="mailto:<%= @user.email %>"> <%= @user.email %></a></td>
-								<!-- </tr>
-									<td>Phone Number</td>
-									<td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
-								</td>
-
-								</tr> -->
-
-							</tbody>
-						</table>
-
-						<!-- <a href="#" class="btn btn-primary">My Sales Performance</a>
-						<a href="#" class="btn btn-primary">Team Sales Performance</a> -->
-					</div>
-				</div>
-			</div>
-			<div class="panel-footer">
-				<a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-				<span class="pull-right">
-				<a href="edit" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-				<a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-				</span>
-			</div>
-		</div>
-	</div>
-	</div>
+<div id="back_menu"><a href="/tasks">< Go Back to home</a></div>
+<div class="todo_block">
+    <div class="well well-sm profile">
+        <div class="media">
+            <a class="thumbnail pull-left" href="#">
+                <img class="media-object" src="http://placehold.it/150x150">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><%= @user.name %></h4>
+        		<p><span class="label label-info"><%= @user.tasks.count %> tasks</span> <span class="label label-warning"><%= @user.friends.count %> friends</span></p>
+                <p>
+                    <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-comment"></span> Message</a>
+                    <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-heart"></span> Favorite</a>
+                    <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-ban-circle"></span> Unfollow</a>
+                </p>
+            </div>
+        </div>
+    </div>
 </div>

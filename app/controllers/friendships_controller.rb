@@ -1,8 +1,11 @@
 class FriendshipsController < ApplicationController
+	  before_filter :check_loggedin
+
 	include FriendshipHelper
 	def create
 		friend=User.find(params[:id])
 		Friendship.request(current_user,friend)
+		UserMailer.friend_request(current_user,friend).deliver
 		flash[:notice]="friend request sent"
 		redirect_to users_path
 	end
@@ -46,5 +49,12 @@ class FriendshipsController < ApplicationController
 		end
 		redirect_to users_path
 	end
+	private
+	    def check_loggedin
+	      @user=current_user
+	      if @user.nil?
+	        redirect_to login_path
+	      end
+	    end
 end
 

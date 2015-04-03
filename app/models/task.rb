@@ -5,6 +5,7 @@ class Task < ActiveRecord::Base
   has_many :shared_users,:class_name=>'User', :through => :task_shares
   attr_accessible :name,:position,:status
   after_create :initialise_sharetask
+  has_one :check_list
   def find_next_task_by_position_and_user_id(position,user_id)
     user=User.find_by_id(user_id)
     user.shared_tasks.joins(:task_shares).select("tasks.*,task_shares.position").where("status = 0 AND task_shares.position>#{position}").order("task_shares.position DESC").last
