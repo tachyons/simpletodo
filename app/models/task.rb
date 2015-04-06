@@ -6,13 +6,15 @@ class Task < ActiveRecord::Base
   attr_accessible :name,:position,:status
   after_create :initialise_sharetask
   has_one :check_list
+  scope :active, -> { where(:status => false) }
+  scope :inactive, -> { where(:status=> true) }
   def find_next_task_by_position_and_user_id(position,user_id)
     user=User.find_by_id(user_id)
-    user.shared_tasks.joins(:task_shares).select("tasks.*,task_shares.position").where("status = 0 AND task_shares.position>#{position}").order("task_shares.position DESC").last
+    user.shared_tasks.active.joins(:task_shares).select("tasks.*,task_shares.position").where("task_shares.position>#{position}").order("task_shares.position DESC").last
   end
   def find_previous_task_by_position_and_user_id(position,user_id)
     user=User.find_by_id(user_id)
-    user.shared_tasks.joins(:task_shares).select("tasks.*,task_shares.position").where("status = 0 AND task_shares.position<#{position}").order("task_shares.position DESC").first
+    user.shared_tasks.active.joins(:task_shares).select("tasks.*,task_shares.position").where("task_shares.position<#{position}").order("task_shares.position DESC").first
   end
   def self.find_by_position(position)
     Task.joins(:task_shares).select("tasks.*,position").where("task_shares.position=#{position}").first
