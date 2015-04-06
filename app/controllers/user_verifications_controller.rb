@@ -5,6 +5,9 @@ class UserVerificationsController < ApplicationController
       @user.verify!
       flash[:notice] = "Thank you for verifying your account. You may now login."
       redirect_to login_path
+    else
+      flash[:notice] = "Could not find the user"
+      redirect_to login_path
     end
     #redirect_to root_url
   end
